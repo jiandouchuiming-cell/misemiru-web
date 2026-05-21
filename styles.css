@@ -159,16 +159,16 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   width: 100%;
   margin: 0 auto;
   aspect-ratio: 5 / 3.6;
-  background: linear-gradient(135deg, #2a1810 0%, #4a2b1a 50%, #2a1810 100%);
+  background: linear-gradient(135deg, #ff5a6e 0%, #ffd93b 55%, #ff8a98 100%);
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(11,44,77,0.14);
+  box-shadow: 0 18px 40px rgba(255,90,110,0.28);
   clip-path: url(#heroBlobClip);
   transition: transform .5s cubic-bezier(.2,.7,.2,1), box-shadow .5s ease;
   transform-origin: center center;
 }
 .hero-visual:hover {
   transform: translateY(-10px) scale(1.04);
-  box-shadow: 0 36px 60px rgba(11,44,77,0.28);
+  box-shadow: 0 36px 60px rgba(255,90,110,0.40);
   animation: none;
 }
 @keyframes heroWobble {
@@ -190,9 +190,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .hero-visual .bg-ph {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 30% 35%, rgba(255, 200, 100, 0.35), transparent 50%),
-    radial-gradient(ellipse at 80% 60%, rgba(255, 180, 90, 0.25), transparent 55%),
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 8px, rgba(0,0,0,0.04) 8px 16px);
+    radial-gradient(ellipse at 28% 32%, rgba(255, 255, 255, 0.32), transparent 45%),
+    radial-gradient(ellipse at 78% 65%, rgba(255, 60, 80, 0.18), transparent 50%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 8px, rgba(0,0,0,0.02) 8px 16px);
 }
 .hero-visual .ph-label {
   position: absolute; left: 16px; bottom: 14px;
