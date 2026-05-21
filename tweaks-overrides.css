@@ -1,0 +1,60 @@
+/* ============ Tweak: density ============ */
+/* Hide a fraction of decorations for lower densities.
+   We tag every .deco with nth-of-type pseudo via parent — but decos are
+   siblings of content, not necessarily contiguous. Use a class-based hide:
+   level 1 (minimal): hide all .deco
+   level 2 (standard): hide every 2nd .deco
+   level 3 (festive, default): show all  */
+
+body.twk-density-minimal .deco { display: none !important; }
+body.twk-density-standard .deco:nth-of-type(2n) { display: none; }
+
+/* ============ Tweak: shape language ============ */
+/* Geometric: replace organic shapes with clean rounded rects */
+body.twk-shape-geometric .hero-visual {
+  clip-path: none !important;
+  border-radius: 24px !important;
+}
+body.twk-shape-geometric .about-vis .lump { display: none; }
+body.twk-shape-geometric .about-vis .blob-stage { display: none; }
+body.twk-shape-geometric .about-vis::before {
+  content: '';
+  position: absolute; inset: 6%;
+  background: linear-gradient(135deg, var(--cream-deep) 0%, var(--pink) 100%);
+  border-radius: 20px;
+}
+body.twk-shape-geometric .about-vis .core {
+  border-radius: 14px !important;
+  border-style: solid !important;
+  width: 78% !important;
+  aspect-ratio: 5/4 !important;
+}
+body.twk-shape-geometric .empathy-card,
+body.twk-shape-geometric .final-card,
+body.twk-shape-geometric .pricing-wrap,
+body.twk-shape-geometric .plan,
+body.twk-shape-geometric .strength-card .icon-wrap img,
+body.twk-shape-geometric .profile-card {
+  border-radius: 10px !important;
+}
+body.twk-shape-geometric .btn,
+body.twk-shape-geometric .plan .plan-cta,
+body.twk-shape-geometric .hero-eyebrow,
+body.twk-shape-geometric .empathy .tag,
+body.twk-shape-geometric .loader-states button {
+  border-radius: 6px !important;
+}
+body.twk-shape-geometric .flow-step .num,
+body.twk-shape-geometric .faq-q .qm,
+body.twk-shape-geometric .fit-item .check,
+body.twk-shape-geometric .hero-icon .ring,
+body.twk-shape-geometric .perk .circle {
+  border-radius: 6px !important;
+}
+body.twk-shape-geometric .profile-photo {
+  border-radius: 8px !important;
+}
+body.twk-shape-geometric .pulse-ring { display: none; }
+
+/* Tweaks root just needs to exist */
+#tweaks-root { position: fixed; z-index: 9999; }
