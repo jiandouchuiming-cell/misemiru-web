@@ -1176,12 +1176,13 @@ root.render(/*#__PURE__*/React.createElement(App, {
                 0 0 0 16 -8" data-om-id="3a40de11:18"></fecolormatrix>
     </filter>
     <clippath id="heroBlobClip" clipPathUnits="objectBoundingBox" data-om-id="3a40de11:19">
-      <path d="M 0.48 0.04
-               C 0.68 -0.04, 0.96 0.08, 1.00 0.34
-               C 1.04 0.56, 0.90 0.80, 0.70 0.94
-               C 0.52 1.06, 0.28 1.00, 0.12 0.88
-               C -0.04 0.76, -0.02 0.52, 0.06 0.34
-               C 0.14 0.14, 0.30 0.10, 0.48 0.04 Z" data-om-id="3a40de11:20"></path>
+      <path d="M 0.52 0.03
+               C 0.70 -0.06, 1.00 0.04, 1.05 0.28
+               C 1.10 0.52, 0.94 0.80, 0.73 0.95
+               C 0.56 1.08, 0.28 1.06, 0.10 0.92
+               C -0.06 0.78, -0.10 0.56, 0.02 0.38
+               C 0.12 0.22, 0.02 0.10, 0.20 0.04
+               C 0.32 -0.02, 0.38 0.10, 0.52 0.03 Z" data-om-id="3a40de11:20"></path>
     </clippath>
   </defs>
 </svg>
@@ -1280,27 +1281,15 @@ root.render(/*#__PURE__*/React.createElement(App, {
       <img class="pcircle pc-hero-5" src="./lavender.png" alt="" data-om-id="3a40de11:94">
       <img class="pcircle pc-hero-6" src="./sky.png" alt="" data-om-id="3a40de11:95">
       <img class="pcircle pc-hero-7" src="./rose.png" alt="" data-om-id="3a40de11:96">
+      <!-- blob背景：レストラン写真のみクリップ -->
       <div class="hero-visual" data-om-id="3a40de11:97">
-        <div class="bg-ph" style="background-position: center center" data-om-id="3a40de11:98"></div>
-        <div class="ph-label" data-om-id="3a40de11:99">// drop in: 店内 / 店主 写真</div>
-
-        <div class="mockup-laptop" data-om-id="3a40de11:100">
-          <div class="mock-content" data-om-id="3a40de11:101">
-            <div class="mk-title" data-om-id="3a40de11:102">こだわりの一皿と、<br data-om-id="3a40de11:103">心地よい時間を。</div>
-            <div class="mk-sub" data-om-id="3a40de11:104">小さなお店だからこそ、素材のひとつひとつにこだわって。<br data-om-id="3a40de11:105">ふっと心が緩む、そんなひとときを。</div>
-            <div class="mk-pill" data-om-id="3a40de11:106">▶ 詳細・問い合わせ</div>
-            <div class="mk-photo" data-om-id="3a40de11:107"></div>
-          </div>
-        </div>
-
-        <div class="mockup-phone" data-om-id="3a40de11:108">
-          <div class="mock-content" style="padding:8px;font-size:6px" data-om-id="3a40de11:109">
-            <div style="font-weight:900" data-om-id="3a40de11:110">こだわりの一皿と、<br data-om-id="3a40de11:111">心地よい時間を。</div>
-            <div style="height:60%;margin-top:6px;background:linear-gradient(135deg,#c98b5a,#6b4423);border-radius:3px" data-om-id="3a40de11:112"></div>
-          </div>
-        </div>
+        <img class="hero-bg-photo" src="./restaurant_hero_photo.png" alt="">
       </div>
-      <img class="hero-badge-img" src="./pre_contract_sample_proposal_gold_badge.png" alt="サンプルをご提案します！" data-om-id="3a40de11:113">
+      <!-- デバイスはblob外に配置（クリップされない） -->
+      <div class="hero-devices">
+        <img class="mockup-laptop-img" src="./laptop_website_mockup.png" alt="PCサイトイメージ">
+        <img class="mockup-phone-img" src="./smartphone_website_mockup.png" alt="スマホサイトイメージ">
+      </div>
     </div>
   </div>
 
