@@ -176,28 +176,47 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   z-index: 0;
 }
 /* デバイスラッパー：通常フロー＋負のmarginでblobに重ねる */
-.hero-devices {
-  display: flex;
-  align-items: flex-end;
-  gap: 0;
-  margin-top: -28%;
+.mockup-wrapper {
   position: relative;
-  z-index: 3;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: -47%;
+  transform: translateX(-40px);
+  z-index: 10;
 }
+
+/* PC画像（ベース） */
 .mockup-laptop-img {
-  flex: 1 1 0;
-  min-width: 0;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.38));
-  transition: transform .5s cubic-bezier(.2,.7,.2,1);
+  width: 100%;
+  height: auto;
+	display: block;
+	transition: transform .5s cubic-bezier(.2,.7,.2,1);
+	filter: drop-shadow(0 20px 40px rgba(0,0,0,0.38));
 }
 .mockup-phone-img {
-  flex: 0 0 30%;
-  width: 30%;
+  position: absolute;
+  width: 53%;
+  right: -23%;
+  bottom: 20%;
+  z-index: 2;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.38));
+	border-radius: 12px;
+	transition: transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.new-extra-img {
+  position: absolute;
+  width: 33%;
+  left: 85%;
+  top: -25%;
+  z-index: 3;
   transition: transform .5s cubic-bezier(.2,.7,.2,1);
 }
-.hero-devices:hover .mockup-laptop-img { transform: translateY(-4px) rotate(-0.4deg); }
-.hero-devices:hover .mockup-phone-img  { transform: translateY(-4px) rotate(0.8deg); }
+
+.mockup-wrapper:hover .mockup-laptop-img { transform: translateY(-4px) rotate(-0.4deg); }
+.mockup-wrapper:hover .mockup-phone-img  { transform: translateY(-4px) rotate(0.8deg); }
+.mockup-wrapper:hover .new-extra-img { transform: translateY(-4px) rotate(-1deg); 
+}
 /* レストラン写真：ホバーで浮き上がる */
 .hero-visual {
   transition: transform .5s cubic-bezier(.2,.7,.2,1);
@@ -270,6 +289,18 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   border-radius: 4px;
 }
 .hero-right { position: relative; }
+
+.mockup-caption {
+  position: absolute;
+  bottom: -30px;
+  left: 62%;
+  transform: translateX(-50%);
+  font-family: 'Caveat', cursive;
+  color: var(--teal);
+  font-size: 22px;
+  white-space: nowrap;
+  z-index: 20;
+}
 
 /* Pastel circle backdrops */
 .pcircle {
