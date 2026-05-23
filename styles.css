@@ -32,7 +32,8 @@ body {
   line-height: 1.75;
   font-feature-settings: 'palt';
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+	overflow-x: hidden;
+	width: 100%;
 }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
@@ -72,6 +73,26 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   transition: width .2s ease;
 }
 .nav-links a:hover::after { width: 100%; }
+@media screen and (max-width: 768px) {
+  
+  .nav-links {
+    display: none; 
+  }
+
+  .nav .btn-sm {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+  .nav .btn-sm .ic {
+    display: none; 
+  }
+  .nav-logo img:first-child {
+    height: 32px; 
+  }
+  .nav-tag {
+    display: none;
+  }
+}
 
 /* ========== Buttons ========== */
 .btn {
@@ -807,12 +828,12 @@ footer::before {
 .plan .price { font-size: 30px; font-weight: 900; text-align: center; margin: 0 0 4px; }
 .plan .price small { font-size: 13px; font-weight: 700; }
 .plan .price-note { text-align: center; font-size: 11px; color: var(--ink-mute); margin: 0 0 18px; }
-.plan ul { list-style: none; padding: 0; margin: 0 0 18px; font-size: 13px; line-height: 1.9; }
+.plan ul { list-style: none; padding: 0; margin: 0 0 18px; font-size: 12px; line-height: 1.9; }
 .plan ul li::before { content: '・'; margin-right: 2px; color: var(--coral); font-weight: 900; }
 .plan .plan-cta {
   display: block; text-align: center; padding: 12px;
   background: var(--coral); color: #fff;
-  border-radius: var(--rad-pill); font-weight: 800; font-size: 13px;
+  border-radius: var(--rad-pill); font-weight: 800; font-size: 11.8125px;
   transition: transform .25s ease;
 }
 .plan.muted .plan-cta { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
@@ -871,7 +892,7 @@ footer::before {
   display: grid; place-items: center; font-weight: 900; font-size: 14px;
   margin-top: 2px;
 }
-.fit-item p { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.6; }
+.fit-item p { margin: 0; font-size: 13px; font-weight: 600; line-height: 1.6; }
 
 /* ========== Sample Works ========== */
 .samples {
@@ -897,7 +918,7 @@ footer::before {
   display: flex;
   gap: 28px;
   width: max-content;
-  padding: 24px 14px;
+  padding: 28px 14px 24px;
   animation: marqueeScroll 36s linear infinite;
 }
 .samples-track:hover { animation-play-state: paused; }
@@ -911,7 +932,7 @@ footer::before {
 .sample-card {
   background: #fff;
   border-radius: 18px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 10px 30px rgba(11,44,77,0.08);
   border: 1px solid rgba(11,44,77,0.05);
   transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease;
@@ -944,7 +965,8 @@ footer::before {
 }
 .sample-card__browser {
   background: #e8e6df;
-  padding: 8px 8px 0;
+	padding: 8px 8px 0;
+	border-radius: 17px 17px 0 0;
 }
 .sample-card__chrome {
   display: flex; align-items: center; gap: 6px;
@@ -969,7 +991,7 @@ footer::before {
   background: #fff;
   border-radius: 6px 6px 0 0;
   aspect-ratio: 4 / 3.6;
-  overflow: hidden;
+	overflow: hidden;
   padding: 14px 14px 0;
 }
 .sample-shot__hero {
@@ -1089,7 +1111,7 @@ footer::before {
   align-items: center;
 }
 .about-grid h2 { font-size: 36px; font-weight: 900; margin: 0 0 20px; line-height: 1.4; }
-.about-grid p { font-size: 15px; line-height: 2; margin: 0 0 14px; }
+.about-grid p { font-size: 14px; line-height: 2; margin: 0 0 14px; }
 .about-grid .pull {
   margin-top: 28px; padding: 20px 22px;
   background: #fff; border-radius: var(--rad-md);
@@ -1171,10 +1193,10 @@ footer::before {
   border: 2px dashed var(--yellow);
 }
 .about-vis .core .big {
-  font-family: 'Caveat', cursive; font-size: 32px;
-  color: var(--coral); line-height: 1.2; margin-bottom: 6px;
+  font-family: 'Caveat', cursive; font-size: 25px;
+  color: var(--coral); line-height: 1.2; margin-top:60px; margin-bottom: 0px;
 }
-.about-vis .core .small { font-size: 14px; font-weight: 700; line-height: 1.7; }
+.about-vis .core .small { font-size: 10px; font-weight: 700; line-height: 1.7; margin-bottom: 40px; }
 
 /* ========== Loader prototype ========== */
 .loader-section {
