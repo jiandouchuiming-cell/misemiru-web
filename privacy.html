@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja" style="--navy:#0b2c4d;--coral:#ff5a6e;--coral-soft:#ff8a98;--yellow:#ffd93b;--yellow-soft:#ffe97a;--teal:#5bc9ce;--teal-soft:#a9e3e6;--cream:#fff7ec;--cream-deep:#fdebd0;--pink:#fbd0d6;--ink:#0b2c4d;--ink-mute:#5a6b7d;--bg:#ffffff;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | ミセミルWeb</title>
+  <meta name="description" content="ミセミルWebのプライバシーポリシーページです。個人情報の取り扱いについてご確認いただけます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/tweaks-overrides.css">
+  <style>
+    /* ===== privacy.html 固有スタイル ===== */
+
+    .privacy-hero {
+      background: linear-gradient(150deg, var(--cream) 0%, #fff 65%);
+      padding: 56px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .privacy-hero::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: var(--yellow-soft);
+      opacity: .22;
+      top: -70px; right: -50px;
+      pointer-events: none;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-bottom: 24px;
+      transition: color .2s;
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--coral); }
+    .hero-label {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .privacy-hero h1 {
+      font-size: clamp(24px, 5vw, 36px);
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0 0 12px;
+      line-height: 1.3;
+    }
+    .privacy-hero .hero-sub {
+      font-size: 14px;
+      color: var(--ink-mute);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ===== 本文エリア ===== */
+    .privacy-section {
+      padding: 64px 0 80px;
+    }
+    .privacy-section .wrap {
+      max-width: 820px;
+    }
+
+    /* リード文 */
+    .privacy-lead {
+      font-size: 14px;
+      color: var(--ink-mute);
+      line-height: 1.9;
+      background: #f6f8fa;
+      border-left: 3px solid var(--coral-soft);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 48px;
+    }
+
+    /* 各ポリシー項目 */
+    .policy-block {
+      margin-bottom: 40px;
+    }
+    .policy-block h2 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--ink);
+      padding: 0 0 10px;
+      border-bottom: 2px solid var(--cream-deep);
+      margin: 0 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .policy-block h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .policy-block p {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.9;
+      margin: 0 0 12px;
+    }
+    .policy-block p:last-child { margin-bottom: 0; }
+
+    /* リスト */
+    .policy-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+    }
+    .policy-list li {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.85;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .policy-list li:last-child { border-bottom: none; }
+    .policy-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 16px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    /* インフォボックス */
+    .info-box {
+      background: var(--cream);
+      border: 1px solid var(--cream-deep);
+      border-radius: 10px;
+      padding: 18px 22px;
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--ink);
+    }
+    .info-box strong {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .info-box a {
+      color: var(--coral);
+      text-decoration: underline;
+    }
+
+    /* 更新日 */
+    .privacy-updated {
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-align: right;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #eaeaea;
+    }
+
+    @media (max-width: 600px) {
+      .policy-block h2 { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== ナビゲーション ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ミセミルWeb</a>
+    <div class="nav-links">
+      <a href="index.html#service">サービス</a>
+      <a href="index.html#strengths">強み</a>
+      <a href="index.html#flow">制作の流れ</a>
+      <a href="index.html#pricing">料金</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="contact.html" class="nav-cta">無料相談する</a>
+  </div>
+</nav>
+
+<!-- ========== ヒーロー ========== -->
+<section class="privacy-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:15px;height:15px"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      トップへ戻る
+    </a>
+    <div class="hero-label">PRIVACY</div>
+    <h1>プライバシーポリシー</h1>
+    <p class="hero-sub">
+      ミセミルWebは、お客様の個人情報を適切に保護することを重要な責務と考えています。<br>
+      以下のポリシーに基づき、個人情報を取り扱います。
+    </p>
+  </div>
+</section>
+
+<!-- ========== 本文 ========== -->
+<section class="privacy-section">
+  <div class="wrap">
+
+    <p class="privacy-lead">
+      ミセミルWeb（運営：椎名 健斗、以下「当サービス」）は、サービスの提供にあたり取得したお客様の個人情報を、本プライバシーポリシーに従って適切に管理・取り扱います。
+    </p>
+
+    <!-- 1. 収集する個人情報 -->
+    <div class="policy-block">
+      <h2><span class="num">1</span>収集する個人情報</h2>
+      <p>当サービスでは、以下の個人情報を収集することがあります。</p>
+      <ul class="policy-list">
+        <li>お名前・ご担当者名</li>
+        <li>店舗名・屋号</li>
+        <li>メールアドレス</li>
+        <li>電話番号</li>
+        <li>業種・サービスの内容</li>
+        <li>お問い合わせ・ご相談内容</li>
+        <li>その他、サービス提供に必要な情報</li>
+      </ul>
+    </div>
+
+    <!-- 2. 利用目的 -->
+    <div class="policy-block">
+      <h2><span class="num">2</span>個人情報の利用目的</h2>
+      <p>収集した個人情報は、以下の目的にのみ利用します。</p>
+      <ul class="policy-list">
+        <li>Webサイト制作サービスの提供・業務連絡</li>
+        <li>お問い合わせ・ご相談への対応</li>
+        <li>お見積り・契約書・請求書の作成・送付</li>
+        <li>制作物の納品・進捗管理</li>
+        <li>アフターサポート・修正対応</li>
+        <li>当サービスに関するご案内（新プランや更新情報など）</li>
+      </ul>
+      <p>上記以外の目的で利用する場合は、事前にお客様の同意を得ます。</p>
+    </div>
+
+    <!-- 3. 第三者提供 -->
+    <div class="policy-block">
+      <h2><span class="num">3</span>個人情報の第三者提供</h2>
+      <p>
+        当サービスは、以下の場合を除き、お客様の個人情報を第三者に提供・開示しません。
+      </p>
+      <ul class="policy-list">
+        <li>お客様本人の同意がある場合</li>
+        <li>法令に基づき開示が必要な場合</li>
+        <li>人の生命・身体・財産の保護のために必要で、お客様の同意取得が困難な場合</li>
+      </ul>
+    </div>
+
+    <!-- 4. 業務委託 -->
+    <div class="policy-block">
+      <h2><span class="num">4</span>業務委託先への開示</h2>
+      <p>
+        サービス提供にあたり、業務の一部を外部の委託先（デザイナー・エンジニアなど）に依頼する場合があります。その際、業務遂行に必要な範囲で個人情報を共有することがあります。委託先に対しては、適切な個人情報保護の水準を求めた上で委託します。
+      </p>
+    </div>
+
+    <!-- 5. Cookieについて -->
+    <div class="policy-block">
+      <h2><span class="num">5</span>Cookieおよびアクセス解析について</h2>
+      <p>
+        当サービスのウェブサイトでは、利便性向上・アクセス状況把握のためにCookieやアクセス解析ツール（Google Analytics等）を使用する場合があります。これらのツールはCookieを利用して、個人を特定しない形で閲覧情報を収集します。
+      </p>
+      <p>
+        Cookieの無効化はブラウザの設定から行えますが、一部の機能が利用できなくなる場合があります。Google AnalyticsのCookie利用については、<a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener noreferrer" style="color:var(--coral);text-decoration:underline">Googleのプライバシーポリシー</a>をご確認ください。
+      </p>
+    </div>
+
+    <!-- 6. 安全管理 -->
+    <div class="policy-block">
+      <h2><span class="num">6</span>個人情報の安全管理</h2>
+      <p>
+        当サービスは、取得した個人情報の漏洩・紛失・改ざんを防止するため、適切なセキュリティ対策を講じます。メールやファイル共有には暗号化通信（TLS/SSL）を使用し、不要になった個人情報は速やかに削除します。
+      </p>
+    </div>
+
+    <!-- 7. 開示・訂正・削除 -->
+    <div class="policy-block">
+      <h2><span class="num">7</span>個人情報の開示・訂正・削除</h2>
+      <p>
+        お客様は、ご自身の個人情報について、開示・訂正・削除・利用停止を請求する権利を有します。ご希望の場合は下記のお問い合わせ窓口までご連絡ください。本人確認の上、合理的な期間内に対応します。
+      </p>
+    </div>
+
+    <!-- 8. 未成年者 -->
+    <div class="policy-block">
+      <h2><span class="num">8</span>未成年者の個人情報</h2>
+      <p>
+        当サービスは、18歳未満の方を対象としたサービスではありません。18歳未満の方がお問い合わせをされる場合は、保護者の同意を得た上でご連絡ください。
+      </p>
+    </div>
+
+    <!-- 9. ポリシーの変更 -->
+    <div class="policy-block">
+      <h2><span class="num">9</span>プライバシーポリシーの変更</h2>
+      <p>
+        本ポリシーは、法令の改正やサービス内容の変更に伴い、予告なく改定することがあります。改定後のポリシーは本ページに掲載した時点で効力を生じます。重要な変更がある場合は、サイト上でお知らせします。
+      </p>
+    </div>
+
+    <!-- 10. お問い合わせ窓口 -->
+    <div class="policy-block">
+      <h2><span class="num">10</span>個人情報に関するお問い合わせ</h2>
+      <div class="info-box">
+        <strong>ミセミルWeb　個人情報取り扱い窓口</strong>
+        運営責任者：椎名 健斗<br>
+        <!-- TODO: 実際のビジネス用メールアドレスに変更してください -->
+        メール：<a href="mailto:info@example.com">info@example.com</a><br>
+        受付時間：平日 10:00〜18:00（土日祝・年末年始を除く）<br>
+        <br>
+        ご相談は<a href="contact.html">お問い合わせフォーム</a>からもお気軽にどうぞ。
+      </div>
+    </div>
+
+    <p class="privacy-updated">制定日：2026年5月24日　／　最終更新日：2026年5月24日</p>
+
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <h5>ミセミルWeb</h5>
+      <p style="margin:0 0 14px;line-height:1.85">個人経営店向け、"先見せ型" LP制作サービス。<br>東京・横浜を中心に対応しています。</p>
+      <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.5)">— 見せイメージ、先に見せます！ —</p>
+    </div>
+    <div>
+      <h5>サービス</h5>
+      <ul>
+        <li><a href="index.html#service">ミセミルWebとは</a></li>
+        <li><a href="index.html#strengths">4つの強み</a></li>
+        <li><a href="index.html#flow">制作の流れ</a></li>
+        <li><a href="index.html#pricing">料金プラン</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>お問い合わせ</h5>
+      <ul>
+        <li><a href="contact.html">無料サンプル相談</a></li>
+        <li><a href="index.html#faq">よくある質問</a></li>
+        <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© 2026 ミセミルWeb. All rights reserved.</div>
+</footer>
+
+<script src="./js/app.js"></script>
+</body>
+</html>

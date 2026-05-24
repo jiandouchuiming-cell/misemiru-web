@@ -440,9 +440,25 @@ section:hover .pcircle { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
 section { position: relative; }
 .section-pad { padding: 110px 0; }
 .section-tight { padding: 80px 0; }
+.section-en {
+  font-family: 'Caveat', cursive;
+  font-size: 56px; font-weight: 700;
+  color: var(--coral); text-align: center;
+  margin: 0 0 2px; line-height: 1.1; display: block;
+}
 .section-title {
   font-size: 38px; font-weight: 900; text-align: center;
   margin: 0 0 12px; letter-spacing: 0.01em;
+}
+.section-en + .section-title {
+  font-size: 15px; font-weight: 600;
+  color: var(--ink-mute); margin: 0 0 40px;
+}
+.section-en + .section-title em {
+  color: var(--ink-mute);
+}
+.section-en + .section-title em::after {
+  display: none;
 }
 .section-title em {
   font-style: normal; color: var(--coral); position: relative;
@@ -654,10 +670,8 @@ footer::before {
   margin-bottom: 22px;
   width: max-content;
   padding: 6px 0;
-  animation: voiceScrollLeft 50s linear infinite;
 }
 .voice-row--reverse {
-  animation: voiceScrollRight 55s linear infinite;
 }
 .voice-row .voice-card {
   flex: 0 0 320px;
@@ -669,15 +683,7 @@ footer::before {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.voice-row:hover { animation-play-state: paused; }
-@keyframes voiceScrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(calc(-50% - 11px)); }
-}
-@keyframes voiceScrollRight {
-  from { transform: translateX(calc(-50% - 11px)); }
-  to   { transform: translateX(0); }
-}
+/* voiceScrollLeft / voiceScrollRight は JS で動的生成（app.js 参照） */
 .voice-card {
   --accent: #5bc9ce;
   background: #fff;

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ja" style="--navy:#0b2c4d;--coral:#ff5a6e;--coral-soft:#ff8a98;--yellow:#ffd93b;--yellow-soft:#ffe97a;--teal:#5bc9ce;--teal-soft:#a9e3e6;--cream:#fff7ec;--cream-deep:#fdebd0;--pink:#fbd0d6;--ink:#0b2c4d;--ink-mute:#5a6b7d;--bg:#ffffff;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料サンプル相談フォーム | ミセミルWeb</title>
+  <meta name="description" content="ミセミルWebの無料サンプル相談フォームです。お店の情報を送っていただければ、2〜3営業日以内にサンプルLPをお届けします。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/tweaks-overrides.css">
+  <style>
+    /* ===== contact.html 固有スタイル ===== */
+
+    /* ---- ページヒーロー ---- */
+    .contact-hero {
+      background: linear-gradient(150deg, var(--cream) 0%, #fff 65%);
+      padding: 56px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-bottom: 24px;
+      transition: color .2s;
+    }
+    .contact-hero .back-link:hover { color: var(--coral); }
+    .contact-hero .free-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .contact-hero h1 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 18px;
+      line-height: 1.2;
+    }
+    .contact-hero h1 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+    .contact-hero .hero-sub {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--ink-mute);
+      line-height: 1.85;
+      margin: 0 0 12px;
+    }
+    .contact-hero .hero-note {
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin: 0;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1.5px solid rgba(11,44,77,0.10);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(11,44,77,0.05);
+    }
+
+    /* ---- ステップ説明 ---- */
+    .contact-steps {
+      padding: 80px 0;
+      background: #fff;
+    }
+    .sec-heading {
+      text-align: center;
+      margin: 0 0 10px;
+    }
+    .sec-heading h2 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(28px, 4.5vw, 48px);
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .sec-heading h2 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+    .sec-heading .sec-sub {
+      font-size: 15px;
+      color: var(--ink-mute);
+      margin: 10px 0 48px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .steps-connector {
+      position: absolute;
+      top: 44px;
+      left: calc(33.33% + 12px);
+      right: calc(33.33% + 12px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--coral-soft), var(--teal-soft));
+      pointer-events: none;
+    }
+    .steps-connector::before,
+    .steps-connector::after {
+      content: '▶';
+      position: absolute;
+      top: 50%;
+      font-size: 10px;
+      transform: translateY(-50%);
+      color: var(--coral-soft);
+    }
+    .steps-connector::before { left: calc(33.33% - 8px); }
+    .steps-connector::after  { left: calc(66.66% - 8px); }
+    .step-card {
+      background: #fff;
+      border: 1.5px solid rgba(11,44,77,0.07);
+      border-radius: var(--rad-md);
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(11,44,77,0.06);
+      position: relative;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 20px;
+      color: #fff;
+      margin: 0 auto 18px;
+    }
+    .step-num--1 { background: var(--coral); box-shadow: 0 4px 12px rgba(255,90,110,0.35); }
+    .step-num--2 { background: var(--teal);  box-shadow: 0 4px 12px rgba(91,201,206,0.35); }
+    .step-num--3 { background: var(--yellow); color: var(--ink); box-shadow: 0 4px 12px rgba(255,217,59,0.4); }
+    .step-card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .step-card p {
+      font-size: 14px;
+      color: var(--ink-mute);
+      line-height: 1.8;
+      margin: 0 0 14px;
+    }
+    .step-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+    .step-tag--coral  { background: #fff0f1; color: var(--coral); }
+    .step-tag--teal   { background: #e8f9fa; color: #2a9d8f; }
+    .step-tag--yellow { background: #fffbe6; color: #b97f10; }
+
+    /* ---- フォームセクション ---- */
+    .contact-form-sec {
+      padding: 80px 0 100px;
+      background: linear-gradient(160deg, var(--cream) 0%, #fff8fa 100%);
+      position: relative;
+    }
+    .form-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .form-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+    .form-sidebar-heading {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0 0 16px;
+    }
+    .form-checklist {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+    .form-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.65;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(11,44,77,0.08);
+    }
+    .form-checklist li:last-child { border-bottom: none; }
+    .chk-badge {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--coral);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .form-trust-card {
+      background: #fff;
+      border-radius: var(--rad-md);
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(11,44,77,0.06);
+      border: 1px solid rgba(11,44,77,0.05);
+    }
+    .form-trust-card p {
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin: 0 0 14px;
+      line-height: 1.75;
+    }
+    .form-trust-card p:last-child { margin: 0; }
+    .form-trust-card strong { color: var(--ink); }
+
+    /* Google Form embed box */
+    .form-embed-box {
+      background: #fff;
+      border-radius: var(--rad-lg);
+      box-shadow: 0 14px 48px rgba(11,44,77,0.10);
+      overflow: hidden;
+      border: 1px solid rgba(11,44,77,0.05);
+    }
+    .form-embed-header {
+      background: var(--coral);
+      color: #fff;
+      padding: 18px 28px;
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-embed-header svg { flex-shrink: 0; }
+    .form-embed-box iframe {
+      width: 100%;
+      min-height: 800px;
+      border: none;
+      display: block;
+    }
+
+    /* Google Form 設置前の仮表示 */
+    .form-placeholder {
+      padding: 64px 40px;
+      text-align: center;
+      background: #fafafa;
+    }
+    .form-placeholder .ph-icon {
+      font-size: 56px;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .form-placeholder h3 {
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .form-placeholder p {
+      font-size: 14px;
+      color: var(--ink-mute);
+      line-height: 1.85;
+      margin: 0 0 28px;
+    }
+    .form-guide {
+      text-align: left;
+      background: #fff;
+      border-radius: var(--rad-md);
+      border: 1px solid rgba(11,44,77,0.08);
+      padding: 20px 24px;
+      margin: 0 auto 28px;
+      max-width: 480px;
+    }
+    .form-guide h4 {
+      font-size: 14px;
+      font-weight: 800;
+      margin: 0 0 12px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .form-guide ol {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 13px;
+      color: var(--ink-mute);
+      line-height: 2;
+    }
+    .form-guide ol strong { color: var(--ink); }
+    .form-guide .field-list {
+      margin: 8px 0 0;
+      padding-left: 20px;
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 2;
+      list-style: disc;
+    }
+
+    /* ---- FAQ ---- */
+    .contact-faq {
+      padding: 80px 0;
+      background: #fff;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .steps-connector { display: none; }
+      .form-layout {
+        grid-template-columns: 1fr;
+      }
+      .form-sidebar { position: static; }
+    }
+    @media (max-width: 640px) {
+      .contact-hero { padding: 40px 0 48px; }
+      .hero-badges { flex-direction: column; align-items: flex-start; }
+      .contact-steps, .contact-form-sec, .contact-faq { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== Nav ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="./images/logos/misemiru_logo_illustrated.png" alt="ミセミルWeb">
+      <div>
+        <img src="./images/logos/misemiru_logo_wordmark.png" alt="ミセミルWeb" style="height:24px">
+        <div class="nav-tag">―見せイメージ、先に見せます！―</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#service">サービス</a>
+      <a href="index.html#samples">サンプル</a>
+      <a href="index.html#flow">制作の流れ</a>
+      <a href="index.html#pricing">料金プラン</a>
+      <a href="index.html#strengths">私たちの強み</a>
+      <a href="index.html#voice">お店の声</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="#form" class="btn btn-primary btn-sm">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path></svg>
+      フォームへ進む →
+    </a>
+  </div>
+</nav>
+
+<!-- ========== Page Hero ========== -->
+<section class="contact-hero">
+  <!-- デコレーション -->
+  <div class="deco float" style="left:2%;top:20px;width:110px;height:80px;opacity:.45">
+    <img src="./images/decorations/mint_blob_shape.png" alt="">
+  </div>
+  <div class="deco drift" style="right:3%;top:30px;width:80px;height:60px;opacity:.4">
+    <img src="./images/decorations/yellow_dotted_diagonal.png" alt="">
+  </div>
+  <div class="deco float" style="right:6%;bottom:20px;width:60px;height:60px;opacity:.5">
+    <img src="./images/decorations/coral_sparkle_set.png" alt="">
+  </div>
+  <div class="deco drift" style="left:5%;bottom:30px;width:50px;height:40px;opacity:.45">
+    <img src="./images/decorations/teal_wavy_line.png" alt="">
+  </div>
+
+  <div class="wrap">
+    <a href="index.html" class="back-link">← トップページへ戻る</a>
+    <div>
+      <span class="free-badge">✨ 相談・サンプル作成は完全無料</span>
+    </div>
+    <h1>無料サンプル<br><em>相談フォーム</em></h1>
+    <p class="hero-sub">
+      お店のイメージや現状をお聞かせください。<br>
+      <strong>2〜3営業日以内</strong>に、あなたのお店のサンプルLPをお届けします。
+    </p>
+    <p class="hero-note">※ サンプルを見てから契約を決めていただけます。しつこい営業は一切しません。</p>
+
+    <div class="hero-badges">
+      <span class="hero-badge">🕐 回答 3分</span>
+      <span class="hero-badge">✅ 契約前にサンプル確認</span>
+      <span class="hero-badge">🙆 断っても費用ゼロ</span>
+      <span class="hero-badge">📍 東京・横浜エリア中心</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ご相談の流れ ========== -->
+<section class="contact-steps">
+  <div class="wrap">
+    <div class="sec-heading">
+      <h2>ご相談から公開まで <em>3ステップ</em></h2>
+      <p class="sec-sub">フォームを送るだけ。あとはこちらでサンプルをご用意します。</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="steps-connector"></div>
+
+      <div class="step-card">
+        <div class="step-num step-num--1">1</div>
+        <h3>フォームを送信</h3>
+        <p>お店の名前・業種・ご要望を入力して送信するだけ。写真やURLがあれば添えてください。なくてもOKです。</p>
+        <span class="step-tag step-tag--coral">⏱ 3分で完了</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num step-num--2">2</div>
+        <h3>サンプルLPをお届け</h3>
+        <p>ご記入内容をもとにサンプルを作成してお送りします。実際に動くページで、公開後のイメージを確認できます。</p>
+        <span class="step-tag step-tag--teal">📦 2〜3営業日以内</span>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num step-num--3">3</div>
+        <h3>ご確認・ご依頼</h3>
+        <p>サンプルを見て気に入ったらご依頼ください。修正・変更は何度でも対応します。もちろん断っても大丈夫です。</p>
+        <span class="step-tag step-tag--yellow">🙆 断っても費用ゼロ</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Google Form ========== -->
+<section class="contact-form-sec" id="form">
+  <!-- デコレーション -->
+  <div class="deco float" style="left:2%;bottom:60px;width:100px;height:80px;opacity:.4">
+    <img src="./images/decorations/teal_sparkle_cluster.png" alt="">
+  </div>
+  <div class="deco drift" style="right:2%;top:80px;width:80px;height:60px;opacity:.4">
+    <img src="./images/decorations/navy_loop_scribble.png" alt="">
+  </div>
+
+  <div class="wrap">
+    <div class="sec-heading">
+      <h2>📋 ご相談フォーム</h2>
+      <p class="sec-sub">入力内容はSSLで暗号化されています。スパムには一切使用しません。</p>
+    </div>
+
+    <div class="form-layout">
+
+      <!-- サイドバー：入力のヒント -->
+      <div class="form-sidebar">
+        <p class="form-sidebar-heading">📝 入力のヒント</p>
+        <ul class="form-checklist">
+          <li>
+            <span class="chk-badge">1</span>
+            <span><strong>お名前とお店の名前</strong><br>ご担当者名とお店の名前をご記入ください</span>
+          </li>
+          <li>
+            <span class="chk-badge">2</span>
+            <span><strong>メール or 電話番号</strong><br>サンプル完成後にご連絡します。どちらかあればOKです</span>
+          </li>
+          <li>
+            <span class="chk-badge">3</span>
+            <span><strong>お店の業種・雰囲気</strong><br>「和食・落ち着いた雰囲気」など、簡単な説明で大丈夫です</span>
+          </li>
+          <li>
+            <span class="chk-badge">4</span>
+            <span><strong>伝えたいこと・課題</strong><br>「予約を増やしたい」「Instagramから集客したい」など</span>
+          </li>
+        </ul>
+
+        <div class="form-trust-card">
+          <p>💡 <strong>用意がなくても大丈夫</strong><br>写真やロゴがなくても、フリー素材でサンプルを作成できます。</p>
+          <p>🔒 <strong>個人情報の取り扱い</strong><br>頂いた情報はサービス提供以外の目的では使用しません。</p>
+          <p>📞 <strong>LINEでも相談できます</strong><br>LINE公式アカウントからもお気軽にご連絡ください。</p>
+        </div>
+      </div>
+
+      <!-- Google Form 埋め込みエリア -->
+      <div class="form-embed-box">
+        <div class="form-embed-header">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:20px;height:20px">
+            <path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path>
+          </svg>
+          無料サンプル相談フォーム
+        </div>
+
+        <!--
+        ============================================================
+        【Google フォームの設置手順】
+
+        1. https://docs.google.com/forms/create でフォームを新規作成
+
+        2. 推奨フォーム項目（すべて記述式）：
+           ・お名前（必須）
+           ・お店の名前（必須）
+           ・メールアドレス（必須）
+           ・電話番号（任意）
+           ・お店の種類・業種（必須）
+           ・現在のホームページURL（任意）
+           ・お店の雰囲気・コンセプト（任意）
+           ・ご要望・お悩み（段落テキスト・任意）
+
+        3. フォーム右上「送信」→「<>（埋め込み）」タブを選択
+
+        4. iframe の src に記載されている URL をコピー
+
+        5. 下の iframe の src="YOUR_GOOGLE_FORM_URL" を
+           コピーしたURLに差し替える
+
+        6. form-placeholder の div ブロックをまるごと削除する
+
+        例: src="https://docs.google.com/forms/d/e/xxxxx/viewform?embedded=true"
+        ============================================================
+        -->
+
+        <iframe
+          src="YOUR_GOOGLE_FORM_URL"
+          style="width:100%;min-height:820px;border:none;display:none;"
+          title="無料サンプル相談フォーム"
+          loading="lazy">
+        </iframe>
+
+        <!-- ▼ Google フォーム設置前の仮表示（設置後はこのブロックを削除） -->
+        <div class="form-placeholder" id="form-placeholder">
+          <div class="ph-icon">📋</div>
+          <h3>Google フォームをここに設置します</h3>
+          <p>
+            上のコメント内の手順に従ってGoogle フォームを作成し、<br>
+            iframeのURLを差し替えてください。
+          </p>
+
+          <div class="form-guide">
+            <h4>📌 推奨フォーム項目</h4>
+            <ul class="field-list">
+              <li>お名前（必須）</li>
+              <li>お店の名前（必須）</li>
+              <li>メールアドレス（必須）</li>
+              <li>電話番号（任意）</li>
+              <li>お店の種類・業種（必須）</li>
+              <li>現在のホームページURL（任意）</li>
+              <li>ご要望・お悩み（テキストエリア）</li>
+            </ul>
+          </div>
+
+          <a href="https://docs.google.com/forms/create" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path>
+            </svg>
+            Google フォームを作成する
+          </a>
+        </div>
+        <!-- ▲ 仮表示ここまで -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== よくあるご質問 ========== -->
+<section class="contact-faq">
+  <div class="wrap" style="max-width:800px">
+    <div class="sec-heading">
+      <h2>よくあるご質問</h2>
+      <p class="sec-sub" style="margin-bottom:40px">フォームを送る前に、気になることを確認してください。</p>
+    </div>
+
+    <div class="faq-list" style="display:flex;flex-direction:column;gap:12px">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>本当に無料ですか？費用はいつ発生しますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">はい、ご相談とサンプル作成は完全無料です。費用が発生するのは、サンプルをご覧いただき「正式に依頼する」と決めたタイミングのみです。断っていただいても一切費用はかかりません。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>フォームを送ってから、どのくらいでサンプルが届きますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">通常、フォーム送信後 2〜3営業日以内にサンプルLPのURLをメールにてお送りします。繁忙期や内容によっては多少お時間をいただく場合がありますが、その際は事前にご連絡します。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>写真やロゴがまだ用意できていません。それでも相談できますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">もちろんです。フリー素材・仮画像を使ってサンプルを作成しますので、まずはお気軽にご相談ください。実際の写真・ロゴは、正式依頼後に用意いただければ問題ありません。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>東京・横浜エリア以外のお店でも対応できますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">オンラインでの対応が基本ですので、全国どこからでもご相談いただけます。対面での打ち合わせをご希望の場合は東京・横浜エリアが中心になりますが、まずはお気軽にお問い合わせください。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>飲食店以外でも依頼できますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">はい、美容室・整骨院・ネイルサロン・カルチャースクールなど、小規模の個人経営店であればご対応いたします。「うちは対象になるかな？」と迷ったら、まずご相談ください。</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px">
+      <p style="font-size:14px;color:var(--ink-mute);margin:0 0 20px">まだ迷っている方も、まずはフォームだけ送ってみてください。</p>
+      <a href="#form" class="btn btn-primary">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path>
+        </svg>
+        無料サンプルの相談をする →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <h5>ミセミルWeb</h5>
+      <p style="margin:0 0 14px;line-height:1.85">個人経営店向け、"先見せ型" LP制作サービス。<br>東京・横浜を中心に対応しています。</p>
+      <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.5)">— 見せイメージ、先に見せます！ —</p>
+    </div>
+    <div>
+      <h5>サービス</h5>
+      <ul>
+        <li><a href="index.html#service">ミセミルWebとは</a></li>
+        <li><a href="index.html#strengths">4つの強み</a></li>
+        <li><a href="index.html#flow">制作の流れ</a></li>
+        <li><a href="index.html#pricing">料金プラン</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>お問い合わせ</h5>
+      <ul>
+        <li><a href="contact.html">無料サンプル相談</a></li>
+        <li><a href="index.html#faq">よくある質問</a></li>
+        <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© 2026 ミセミルWeb. All rights reserved.</div>
+</footer>
+
+<script src="./js/app.js"></script>
+</body>
+</html>

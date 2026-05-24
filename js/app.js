@@ -12,13 +12,39 @@
 
 /* ===== Duplicate voice cards for seamless marquee loops ===== */
 (function setupVoiceMarquees() {
+  const CARD_W = 320;   // .voice-row .voice-card { flex: 0 0 320px }
+  const GAP    = 22;    // .voice-row { gap: 22px }
+
   document.querySelectorAll('.voice-row').forEach(row => {
-    const original = Array.from(row.children);
-    original.forEach(card => {
-      const clone = card.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      row.appendChild(clone);
-    });
+    const originals = Array.from(row.children);
+    const N    = originals.length;
+    const setW = N * (CARD_W + GAP); // 1セット分の幅（カード＋gap込み）
+
+    /* 画面幅の 3 倍以上になるまでコピーを追加
+       → どんな横幅でもアニメーション端点で空白が出ない */
+    const needed = Math.ceil(window.innerWidth * 3 / setW) + 1;
+    for (let i = 0; i < needed; i++) {
+      originals.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        row.appendChild(clone);
+      });
+    }
+
+    /* ピクセル精度のキーフレームを動的生成（calc で生じる端数ズレを排除） */
+    const isReverse = row.classList.contains('voice-row--reverse');
+    const animName  = `vcScroll_${isReverse ? 'R' : 'L'}_${N}`;
+    if (!document.getElementById(animName)) {
+      const s = document.createElement('style');
+      s.id = animName;
+      s.textContent = isReverse
+        ? `@keyframes ${animName}{from{transform:translateX(-${setW}px)}to{transform:translateX(0)}}`
+        : `@keyframes ${animName}{from{transform:translateX(0)}to{transform:translateX(-${setW}px)}}`;
+      document.head.appendChild(s);
+    }
+
+    const dur = isReverse ? '55s' : '50s';
+    row.style.animation = `${animName} ${dur} linear infinite`;
   });
 })();
 

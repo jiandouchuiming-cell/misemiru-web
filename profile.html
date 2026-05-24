@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ja" style="--navy:#0b2c4d;--coral:#ff5a6e;--coral-soft:#ff8a98;--yellow:#ffd93b;--yellow-soft:#ffe97a;--teal:#5bc9ce;--teal-soft:#a9e3e6;--cream:#fff7ec;--cream-deep:#fdebd0;--pink:#fbd0d6;--ink:#0b2c4d;--ink-mute:#5a6b7d;--bg:#ffffff;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロフィール | ミセミルWeb</title>
+  <meta name="description" content="ミセミルWeb 運営者・椎名健斗のプロフィールページです。制作への想い、経歴、スキルなどをご紹介します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/tweaks-overrides.css">
+  <style>
+    /* ===== profile.html 固有スタイル ===== */
+
+    /* ---- ヒーロー ---- */
+    .profile-hero {
+      background: linear-gradient(150deg, var(--cream) 0%, #fff 60%);
+      padding: 64px 0 80px;
+      overflow: hidden;
+      position: relative;
+    }
+    .profile-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: var(--coral-soft);
+      opacity: .12;
+      top: -120px; right: -80px;
+      pointer-events: none;
+    }
+    .profile-hero::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: var(--teal);
+      opacity: .10;
+      bottom: -60px; left: 5%;
+      pointer-events: none;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-bottom: 32px;
+      transition: color .2s;
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--coral); }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    /* 写真枠 */
+    .photo-frame {
+      position: relative;
+    }
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--cream-deep) 0%, var(--pink) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--ink-mute);
+      font-size: 13px;
+      border: 2px dashed var(--coral-soft);
+      position: relative;
+      overflow: hidden;
+    }
+    /* ↓ 写真を差し替えるときはここの background-image を変えてください */
+    /* .photo-placeholder { background-image: url('./images/profile.jpg'); background-size: cover; background-position: center; } */
+    .photo-placeholder svg { opacity: .5; }
+    .photo-placeholder .photo-note {
+      font-size: 11px;
+      color: var(--ink-mute);
+      opacity: .7;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .photo-frame .frame-deco {
+      position: absolute;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--yellow);
+      bottom: -14px; right: -14px;
+      z-index: -1;
+    }
+    .photo-frame .frame-deco2 {
+      position: absolute;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--teal-soft);
+      top: -10px; left: -10px;
+      z-index: -1;
+    }
+
+    /* テキスト側 */
+    .hero-text .hero-label {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .hero-text h1 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(40px, 7vw, 64px);
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 4px;
+      line-height: 1.1;
+    }
+    .hero-text .name-kana {
+      font-size: 13px;
+      color: var(--ink-mute);
+      letter-spacing: 0.15em;
+      margin: 0 0 20px;
+    }
+    .hero-text .tagline {
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--ink);
+      line-height: 1.9;
+      margin: 0 0 28px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-tag {
+      background: #fff;
+      border: 1.5px solid var(--cream-deep);
+      color: var(--ink-mute);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+
+    /* ---- セクション共通 ---- */
+    .prof-section {
+      padding: 72px 0;
+    }
+    .prof-section + .prof-section {
+      border-top: 1px solid #eef0f2;
+    }
+    .sec-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      color: var(--coral);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0 0 40px;
+      line-height: 1.3;
+    }
+
+    /* ---- 略歴タイムライン ---- */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      max-width: 680px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--coral), var(--teal));
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative;
+      padding-bottom: 36px;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -28px; top: 4px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2.5px solid var(--coral);
+      box-shadow: 0 0 0 3px rgba(255,90,110,.12);
+    }
+    .tl-item:last-child .tl-dot {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(91,201,206,.18);
+    }
+    .tl-year {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--coral);
+      margin-bottom: 4px;
+    }
+    .tl-item:last-child .tl-year { color: var(--teal); }
+    .tl-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 6px;
+    }
+    .tl-body {
+      font-size: 14px;
+      color: var(--ink-mute);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    /* ---- こだわり・想い ---- */
+    .belief-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .belief-card {
+      background: #fff;
+      border: 1.5px solid #eef0f2;
+      border-radius: 16px;
+      padding: 28px 24px 26px;
+      box-shadow: 0 2px 12px rgba(11,44,77,.05);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .belief-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(11,44,77,.10);
+    }
+    .belief-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+    .belief-card h3 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0 0 10px;
+      line-height: 1.4;
+    }
+    .belief-card p {
+      font-size: 13px;
+      color: var(--ink-mute);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    /* ---- スキル ---- */
+    .skill-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .skill-group h3 {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--ink-mute);
+      text-transform: uppercase;
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--cream-deep);
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      background: var(--cream);
+      border: 1px solid var(--cream-deep);
+      padding: 6px 14px;
+      border-radius: 999px;
+      line-height: 1;
+    }
+    .skill-tag .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ---- お人柄・趣味 ---- */
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 2;
+      margin: 0 0 16px;
+    }
+    .about-text p:last-child { margin: 0; }
+    .hobby-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hobby-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .hobby-emoji {
+      font-size: 24px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .hobby-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 4px;
+    }
+    .hobby-item p {
+      font-size: 13px;
+      color: var(--ink-mute);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ---- CTA バナー ---- */
+    .profile-cta {
+      background: linear-gradient(135deg, var(--coral) 0%, #ff8570 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      color: #fff;
+    }
+    .profile-cta h2 {
+      font-size: clamp(20px, 3.5vw, 26px);
+      font-weight: 800;
+      margin: 0 0 12px;
+      color: #fff;
+    }
+    .profile-cta p {
+      font-size: 14px;
+      opacity: .9;
+      line-height: 1.85;
+      margin: 0 0 28px;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--coral);
+      font-size: 15px;
+      font-weight: 800;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,.18);
+    }
+
+    /* ---- レスポンシブ ---- */
+    @media (max-width: 768px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .photo-frame {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+      .hero-text { text-align: center; }
+      .hero-tags { justify-content: center; }
+      .belief-grid { grid-template-columns: 1fr; gap: 16px; }
+      .skill-layout { grid-template-columns: 1fr; gap: 28px; }
+      .about-layout { grid-template-columns: 1fr; }
+      .profile-cta { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== ナビゲーション ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">ミセミルWeb</a>
+    <div class="nav-links">
+      <a href="index.html#service">サービス</a>
+      <a href="index.html#strengths">強み</a>
+      <a href="index.html#flow">制作の流れ</a>
+      <a href="index.html#pricing">料金</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="contact.html" class="nav-cta">無料相談する</a>
+  </div>
+</nav>
+
+<!-- ========== ヒーロー ========== -->
+<section class="profile-hero">
+  <div class="wrap">
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:15px;height:15px"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      トップへ戻る
+    </a>
+
+    <div class="hero-layout">
+
+      <!-- 写真枠 -->
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <!--
+            ★ 写真の差し替え方法 ★
+            1. profile.jpg などを ./images/ フォルダに入れる
+            2. この <div> タグを削除して以下のように変更する：
+               <img src="./images/profile.jpg" alt="椎名 健斗" style="width:100%;border-radius:24px;display:block;">
+          -->
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.8" width="52" height="52">
+            <circle cx="32" cy="24" r="12"/>
+            <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24"/>
+          </svg>
+          <span class="photo-note">写真を<br>ここに差し替え</span>
+        </div>
+        <div class="frame-deco"></div>
+        <div class="frame-deco2"></div>
+      </div>
+
+      <!-- テキスト -->
+      <div class="hero-text">
+        <div class="hero-label">PROFILE</div>
+        <h1>Kento Shiina</h1>
+        <p class="name-kana">椎名 健斗（しいな けんと）</p>
+        <p class="tagline">
+          東京・横浜周辺の個人経営店向けに、Webサイト制作を行っています。<br>
+          ただ見た目がきれいなサイトではなく、お店の雰囲気やこだわりが<br>
+          きちんと伝わるサイトを作りたいと考えています。<br>
+          一店舗ずつ丁寧に向き合い、スピード感を持って制作します。
+        </p>
+        <div class="hero-tags">
+          <span class="hero-tag">Webデザイン</span>
+          <span class="hero-tag">LP制作</span>
+          <span class="hero-tag">飲食店専門</span>
+          <span class="hero-tag">横浜市在住</span>
+          <span class="hero-tag">フリーランス</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 自己紹介・略歴 ========== -->
+<section class="prof-section" style="background:#fff;">
+  <div class="wrap" style="max-width:820px">
+    <p class="sec-label">Background</p>
+    <h2 class="sec-title">自己紹介・略歴</h2>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-year">現在 在学中（2029年卒業予定）</p>
+        <h3 class="tl-title">東京理科大学 理学部第一部 2年生</h3>
+        <p class="tl-body">
+          在学中からWebやデジタル表現に興味を持ち、
+          HTML / CSS・AIツールなどを独学で習得。
+          学業と並行してフリーランスとして活動中。
+        </p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-year">独立のきっかけ</p>
+        <h3 class="tl-title">身近なお店にサイトがないことに気づく</h3>
+        <p class="tl-body">
+          通っていた近所のカフェや定食屋を検索しても、まともなサイトが見つからない。
+          「Googleマップの写真だけで判断しなきゃいけないって、もったいない」と感じ、
+          個人経営店向けのWebサービスを立ち上げることを決意。
+        </p>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <p class="tl-year">現在</p>
+        <h3 class="tl-title">ミセミルWeb 運営中</h3>
+        <p class="tl-body">
+          神奈川県横浜市を拠点に、東京・横浜周辺の個人経営店向けに
+          LP制作を提供。AIツールを駆使した制作スピードと「先見せ型」の
+          提案スタイルで、イメージのすり合わせをしながら進める制作フローが好評。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== 制作へのこだわり・想い ========== -->
+<section class="prof-section" style="background:#fafafa;">
+  <div class="wrap">
+    <p class="sec-label">Philosophy</p>
+    <h2 class="sec-title">制作へのこだわり・想い</h2>
+
+    <div class="belief-grid">
+
+      <div class="belief-card">
+        <div class="belief-icon" style="background:var(--pink);">🍽️</div>
+        <h3>お店の"空気感"を<br>サイトで再現したい</h3>
+        <p>
+          メニューや価格よりも、「なんかいい雰囲気」「行ってみたい」と思わせる空気感こそが、個人店の最大の魅力。その空気感をサイトに落とし込むことを、一番大切にしています。
+        </p>
+      </div>
+
+      <div class="belief-card">
+        <div class="belief-icon" style="background:var(--yellow-soft);">⚡</div>
+        <h3>スピードは信頼だと<br>思っています</h3>
+        <p>
+          返信が遅い、納期が読めない——そういう不安をなくすため、連絡は当日中・制作は最短7日を目標にしています。オーナーさんが安心して任せられる仕事がしたい。
+        </p>
+      </div>
+
+      <div class="belief-card">
+        <div class="belief-icon" style="background:var(--teal-soft);">👁️</div>
+        <h3>"先見せ"にこだわる<br>理由</h3>
+        <p>
+          「イメージが違った」「やり直してほしい」——これが制作の最大のストレスだと知っています。だから完成前にデザインイメージを見せ、納得してから進める。それが私の流儀です。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== スキル・使用ツール ========== -->
+<section class="prof-section" style="background:#fff;">
+  <div class="wrap" style="max-width:820px">
+    <p class="sec-label">Skills &amp; Tools</p>
+    <h2 class="sec-title">スキル・使用ツール</h2>
+
+    <div class="skill-layout">
+
+      <div class="skill-group">
+        <h3>制作スキル</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><span class="dot" style="background:var(--coral)"></span>HTML / CSS</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--coral)"></span>JavaScript</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--coral)"></span>レスポンシブデザイン</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--coral)"></span>LP設計・コーディング</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--coral)"></span>SEO基礎設定</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--coral)"></span>Google Analytics 設定</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>使用AIツール</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><span class="dot" style="background:var(--teal)"></span>GPT Image 2（画像生成）</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--teal)"></span>Claude Code（コーディング）</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>使用サービス・環境</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><span class="dot" style="background:var(--yellow)"></span>Xserver / さくらサーバー</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--yellow)"></span>Google フォーム</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--yellow)"></span>Googleマップ 埋め込み</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--yellow)"></span>VS Code</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>得意なこと</h3>
+        <div class="skill-tags">
+          <span class="skill-tag"><span class="dot" style="background:var(--navy)"></span>飲食店・カフェのLP</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--navy)"></span>雰囲気重視のデザイン</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--navy)"></span>スマホ最適化</span>
+          <span class="skill-tag"><span class="dot" style="background:var(--navy)"></span>短納期対応</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== お人柄・趣味・好きなもの ========== -->
+<section class="prof-section" style="background:#fafafa;">
+  <div class="wrap" style="max-width:820px">
+    <p class="sec-label">About Me</p>
+    <h2 class="sec-title">お人柄・趣味・好きなもの</h2>
+
+    <div class="about-layout">
+
+      <div class="about-text">
+        <p>
+          仕事でいちばん好きな瞬間は、完成したサイトをオーナーさんに見ていただいて、「これ、うちのお店だ！」と言ってもらえる瞬間です。そのひと言のためにやっています。
+        </p>
+        <p>
+          取引先でもなく、クライアントでもなく、「一緒にお店を伝えていく仲間」という感覚で仕事をしたいと思っています。気軽に連絡してもらえる関係が好きです。
+        </p>
+        <p>
+          横浜市在住。休日は気になったお店に食べ歩きに行きながら、「このお店、サイトないんだ」とついチェックしてしまいます（笑）。
+        </p>
+      </div>
+
+      <div class="hobby-list">
+        <div class="hobby-item">
+          <div class="hobby-emoji">🎸</div>
+          <div>
+            <h4>ギター</h4>
+            <p>弾き語りが好きで、気が向いたときにゆるく練習しています。</p>
+          </div>
+        </div>
+        <div class="hobby-item">
+          <div class="hobby-emoji">⚽</div>
+          <div>
+            <h4>サッカー</h4>
+            <p>観るのも好き。試合の日はちゃんと仕事を終わらせてから楽しみます。</p>
+          </div>
+        </div>
+        <div class="hobby-item">
+          <div class="hobby-emoji">🤖</div>
+          <div>
+            <h4>AI活用</h4>
+            <p>GPT Image 2やClaude Codeなど最新AIツールを積極的に制作に取り入れています。新しいツールが出るたびすぐ試す派。</p>
+          </div>
+        </div>
+        <div class="hobby-item">
+          <div class="hobby-emoji">🍜</div>
+          <div>
+            <h4>食べ歩き・音楽</h4>
+            <p>横浜・東京の個人経営店を開拓中。作業中は好きな音楽をかけながら集中します。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="prof-section" style="background:#fff;">
+  <div class="wrap" style="max-width:720px">
+    <div class="profile-cta">
+      <h2>一度、話してみませんか？</h2>
+      <p>
+        サービスのことはもちろん、「こんなサイトができるかな？」という<br>
+        ざっくりした相談も大歓迎です。まずはお気軽にどうぞ。
+      </p>
+      <a href="contact.html" class="btn-white">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:17px;height:17px">
+          <path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"/>
+        </svg>
+        無料サンプルの相談をする　→
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <h5>ミセミルWeb</h5>
+      <p style="margin:0 0 14px;line-height:1.85">個人経営店向け、"先見せ型" LP制作サービス。<br>東京・横浜を中心に対応しています。</p>
+      <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.5)">— 見せイメージ、先に見せます！ —</p>
+    </div>
+    <div>
+      <h5>サービス</h5>
+      <ul>
+        <li><a href="index.html#service">ミセミルWebとは</a></li>
+        <li><a href="index.html#strengths">4つの強み</a></li>
+        <li><a href="index.html#flow">制作の流れ</a></li>
+        <li><a href="index.html#pricing">料金プラン</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>お問い合わせ</h5>
+      <ul>
+        <li><a href="contact.html">無料サンプル相談</a></li>
+        <li><a href="index.html#faq">よくある質問</a></li>
+        <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© 2026 ミセミルWeb. All rights reserved.</div>
+</footer>
+
+<script src="./js/app.js"></script>
+</body>
+</html>

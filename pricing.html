@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="ja" style="--navy:#0b2c4d;--coral:#ff5a6e;--coral-soft:#ff8a98;--yellow:#ffd93b;--yellow-soft:#ffe97a;--teal:#5bc9ce;--teal-soft:#a9e3e6;--cream:#fff7ec;--cream-deep:#fdebd0;--pink:#fbd0d6;--ink:#0b2c4d;--ink-mute:#5a6b7d;--bg:#ffffff;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>料金プラン詳細 | ミセミルWeb</title>
+  <meta name="description" content="ミセミルWebの料金プラン詳細ページです。実績作りプラン・通常LPプラン・月額保守プランの比較表と、オプション・お支払い方法をご確認いただけます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/tweaks-overrides.css">
+  <style>
+    /* ===== pricing.html 固有スタイル ===== */
+
+    /* ---- ページヒーロー ---- */
+    .pricing-hero {
+      background: linear-gradient(150deg, var(--cream) 0%, #fff 65%);
+      padding: 56px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin-bottom: 24px;
+      transition: color .2s;
+    }
+    .back-link:hover { color: var(--coral); }
+    .hero-label {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .pricing-hero h1 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(38px, 7vw, 68px);
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .pricing-hero h1 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+    .pricing-hero .hero-sub {
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--ink-mute);
+      line-height: 1.85;
+      margin: 0;
+      max-width: 540px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1.5px solid rgba(11,44,77,0.10);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      box-shadow: 0 2px 8px rgba(11,44,77,0.05);
+    }
+
+    /* ---- 共通セクション ---- */
+    .sec { padding: 80px 0; }
+    .sec--gray { background: var(--cream); }
+    .sec--white { background: #fff; }
+    .sec-head {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .sec-head h2 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(28px, 4.5vw, 48px);
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+    .sec-head h2 em { font-style: normal; color: var(--coral); }
+    .sec-head p {
+      font-size: 15px;
+      color: var(--ink-mute);
+      margin: 0;
+      line-height: 1.75;
+    }
+
+    /* ---- プラン比較表 ---- */
+    .compare-wrap {
+      overflow-x: auto;
+      border-radius: var(--rad-md);
+      box-shadow: var(--shadow-md);
+    }
+    .compare-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+    }
+    .compare-table thead tr th {
+      padding: 0;
+      vertical-align: bottom;
+    }
+    .th-plan {
+      padding: 28px 20px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(11,44,77,0.06);
+    }
+    .th-plan:last-child { border-right: none; }
+    .th-plan .plan-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+    .th-plan .plan-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .th-plan .plan-price {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .th-plan .plan-price small {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink-mute);
+    }
+    .th-plan.featured {
+      background: linear-gradient(160deg, #fff7ec, #fff);
+      border-top: 3px solid var(--coral);
+    }
+    .th-feature {
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 10px 20px;
+      text-align: left;
+    }
+    .th-feature-spacer {
+      background: var(--navy);
+      width: 220px;
+    }
+    .compare-table tbody tr td {
+      padding: 14px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(11,44,77,0.05);
+      border-bottom: 1px solid rgba(11,44,77,0.05);
+      vertical-align: middle;
+      line-height: 1.55;
+    }
+    .compare-table tbody tr td:first-child {
+      text-align: left;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--ink);
+      background: #fafbfc;
+    }
+    .compare-table tbody tr td:last-child { border-right: none; }
+    .compare-table tbody tr:last-child td { border-bottom: none; }
+    .compare-table tbody tr.row-group td:first-child {
+      background: rgba(11,44,77,0.04);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--ink-mute);
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 8px 20px;
+    }
+    .compare-table tbody tr.row-group td {
+      background: rgba(11,44,77,0.04);
+      padding: 8px 20px;
+    }
+    .check { color: var(--teal); font-size: 18px; font-weight: 900; }
+    .cross { color: #d1d5db; font-size: 16px; }
+    .tag-limited {
+      display: inline-block;
+      background: #fff0f1;
+      color: var(--coral);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-top: 4px;
+    }
+    .compare-cta td {
+      padding: 24px 20px !important;
+      background: #fafbfc;
+    }
+    .compare-cta td:first-child { background: #fafbfc !important; }
+    .compare-cta .btn { font-size: 13px; padding: 11px 22px; }
+    .compare-cta .btn-outline {
+      background: #fff;
+      color: var(--ink);
+      border: 1.5px solid rgba(11,44,77,0.18);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 11px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 13px;
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .compare-cta .btn-outline:hover { background: var(--ink); color: #fff; transform: translateY(-2px); }
+
+    /* ---- 各プラン詳細カード ---- */
+    .plan-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+    .plan-detail-card {
+      border-radius: var(--rad-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      background: #fff;
+      border: 1px solid rgba(11,44,77,0.06);
+    }
+    .plan-detail-card.featured {
+      border: 2px solid var(--coral);
+      box-shadow: 0 18px 48px rgba(255,90,110,0.15);
+    }
+    .plan-card-header {
+      padding: 28px 24px 24px;
+      border-bottom: 1px solid rgba(11,44,77,0.07);
+    }
+    .plan-card-header.featured { background: linear-gradient(150deg, var(--cream), #fff); }
+    .plan-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .plan-card-header h3 {
+      font-size: 20px;
+      font-weight: 900;
+      margin: 0 0 6px;
+      color: var(--ink);
+    }
+    .plan-card-price {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1;
+      margin: 8px 0 4px;
+    }
+    .plan-card-price small {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink-mute);
+    }
+    .plan-card-header p {
+      font-size: 13px;
+      color: var(--ink-mute);
+      margin: 6px 0 0;
+      line-height: 1.7;
+    }
+    .plan-card-body {
+      padding: 24px;
+    }
+    .plan-includes h4 {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--ink-mute);
+      margin: 0 0 12px;
+    }
+    .plan-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+    .plan-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(11,44,77,0.05);
+    }
+    .plan-feature-list li:last-child { border-bottom: none; }
+    .plan-feature-list .fi-check {
+      color: var(--teal);
+      font-weight: 900;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .plan-not-includes h4 {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--ink-mute);
+      margin: 0 0 10px;
+    }
+    .plan-not-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+    .plan-not-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-mute);
+      line-height: 1.6;
+      padding: 5px 0;
+    }
+    .plan-not-list .fi-cross {
+      color: #d1d5db;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .plan-spec-list {
+      background: rgba(11,44,77,0.03);
+      border-radius: var(--rad-sm);
+      padding: 14px 16px;
+      margin: 0 0 20px;
+    }
+    .plan-spec-list li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 5px 0;
+      border-bottom: 1px dashed rgba(11,44,77,0.08);
+    }
+    .plan-spec-list li:last-child { border-bottom: none; }
+    .plan-spec-list .spec-label { color: var(--ink-mute); }
+    .plan-spec-list .spec-value { font-weight: 800; color: var(--ink); }
+    .plan-card-body .note {
+      font-size: 12px;
+      color: var(--ink-mute);
+      line-height: 1.7;
+      margin: 0 0 20px;
+      padding: 10px 12px;
+      background: #fff8e1;
+      border-radius: var(--rad-sm);
+      border-left: 3px solid var(--yellow);
+    }
+    .plan-card-body .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ---- オプション表 ---- */
+    .option-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--rad-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .option-table {
+      width: 100%;
+      min-width: 560px;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+    }
+    .option-table thead tr th {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 20px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-align: left;
+    }
+    .option-table thead tr th:last-child { text-align: right; }
+    .option-table tbody tr td {
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(11,44,77,0.06);
+      color: var(--ink);
+      vertical-align: top;
+      line-height: 1.65;
+    }
+    .option-table tbody tr:last-child td { border-bottom: none; }
+    .option-table .opt-price {
+      text-align: right;
+      font-weight: 900;
+      white-space: nowrap;
+      color: var(--ink);
+    }
+    .option-table .opt-note {
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 2px;
+    }
+    .option-table .tag-free {
+      display: inline-block;
+      background: #e6f9f0;
+      color: #1a7a4e;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .option-table tbody tr:hover td { background: #fafbfc; }
+
+    /* ---- お支払いセクション ---- */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .payment-card {
+      background: #fff;
+      border-radius: var(--rad-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(11,44,77,0.06);
+    }
+    .payment-card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0 0 16px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .payment-card p, .payment-card li {
+      font-size: 14px;
+      color: var(--ink-mute);
+      line-height: 1.8;
+      margin: 0;
+    }
+    .payment-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .payment-card ul li {
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(11,44,77,0.08);
+      display: flex;
+      gap: 8px;
+    }
+    .payment-card ul li:last-child { border-bottom: none; }
+    .payment-card ul li::before {
+      content: '▸';
+      color: var(--coral);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .payment-timeline {
+      grid-column: 1 / -1;
+    }
+    .timeline-steps {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .tl-step {
+      flex: 1;
+      min-width: 160px;
+      text-align: center;
+      padding: 16px 12px;
+      background: var(--cream);
+      border-radius: var(--rad-sm);
+    }
+    .tl-step .tl-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+    .tl-step .tl-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .tl-step .tl-amount {
+      font-size: 13px;
+      color: var(--coral);
+      font-weight: 700;
+    }
+    .tl-arrow {
+      font-size: 20px;
+      color: var(--ink-mute);
+      padding: 0 8px;
+      flex-shrink: 0;
+    }
+
+    /* ---- FAQ ---- */
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+
+    /* ---- CTA バナー ---- */
+    .pricing-cta-banner {
+      background: linear-gradient(135deg, var(--coral) 0%, #ff8a6e 100%);
+      border-radius: var(--rad-lg);
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-cta-banner::before {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+    }
+    .pricing-cta-banner::after {
+      content: '';
+      position: absolute;
+      left: -40px;
+      bottom: -40px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+    .pricing-cta-banner h2 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    .pricing-cta-banner p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 28px;
+      line-height: 1.75;
+    }
+    .pricing-cta-banner .btn-white {
+      background: #fff;
+      color: var(--coral);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 15px;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+    .pricing-cta-banner .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.2); }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+      .plan-cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .payment-grid { grid-template-columns: 1fr; }
+      .payment-timeline { grid-column: auto; }
+      .timeline-steps { flex-direction: column; align-items: stretch; gap: 8px; }
+      .tl-arrow { display: none; }
+    }
+    @media (max-width: 640px) {
+      .sec { padding: 56px 0; }
+      .pricing-cta-banner { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== Nav ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="./images/logos/misemiru_logo_illustrated.png" alt="ミセミルWeb">
+      <div>
+        <img src="./images/logos/misemiru_logo_wordmark.png" alt="ミセミルWeb" style="height:24px">
+        <div class="nav-tag">―見せイメージ、先に見せます！―</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#service">サービス</a>
+      <a href="index.html#samples">サンプル</a>
+      <a href="index.html#flow">制作の流れ</a>
+      <a href="index.html#pricing">料金プラン</a>
+      <a href="index.html#strengths">私たちの強み</a>
+      <a href="index.html#voice">お店の声</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="contact.html" class="btn btn-primary btn-sm">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path></svg>
+      無料サンプルの相談をする →
+    </a>
+  </div>
+</nav>
+
+<!-- ========== Page Hero ========== -->
+<section class="pricing-hero">
+  <div class="deco float" style="left:2%;top:20px;width:100px;height:80px;opacity:.4">
+    <img src="./images/decorations/mint_blob_shape.png" alt="">
+  </div>
+  <div class="deco drift" style="right:3%;top:30px;width:80px;height:60px;opacity:.4">
+    <img src="./images/decorations/yellow_dotted_diagonal.png" alt="">
+  </div>
+
+  <div class="wrap">
+    <a href="index.html#pricing" class="back-link">← 料金プラン一覧へ戻る</a>
+    <div><span class="hero-label">PRICING</span></div>
+    <h1>シンプルで<br><em>わかりやすい</em>料金</h1>
+    <p class="hero-sub">
+      隠れた追加費用はありません。すべて税込み表記です。<br>
+      まずはサンプルをご覧いただいてから、ご依頼をご検討ください。
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge">💰 全額税込み表記</span>
+      <span class="hero-badge">🔍 隠れた費用なし</span>
+      <span class="hero-badge">✅ サンプル確認後に契約</span>
+      <span class="hero-badge">💳 分割払い対応（要相談）</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== プラン比較表 ========== -->
+<section class="sec sec--white" id="compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>プラン <em>比較表</em></h2>
+      <p>3つのプランを横並びで比較できます。スクロールしてご確認ください。</p>
+    </div>
+
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="th-feature-spacer"></th>
+            <th class="th-plan featured">
+              <span class="plan-label" style="background:#fff0f1;color:var(--coral)">初回3店舗限定</span>
+              <span class="plan-name">実績作りプラン</span>
+              <div class="plan-price">¥29,800<small>（税込）</small></div>
+            </th>
+            <th class="th-plan">
+              <span class="plan-label" style="background:#e6f9fa;color:#2a9d8f">スタンダード</span>
+              <span class="plan-name">通常LPプラン</span>
+              <div class="plan-price">¥79,800<small>〜（税込）</small></div>
+            </th>
+            <th class="th-plan">
+              <span class="plan-label" style="background:#fffbe6;color:#b97f10">サポート</span>
+              <span class="plan-name">月額保守プラン</span>
+              <div class="plan-price">¥5,500<small>/月〜（税込）</small></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 制作内容 -->
+          <tr class="row-group">
+            <td>制作内容</td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td>1枚LP制作</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>スマホ対応（レスポンシブ）</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>店舗紹介文・コピーライティング</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>メニュー・こだわり紹介</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>アクセス・基本情報掲載</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>予約・SNS・LINE等への導線</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>画像・装飾素材作成</td>
+            <td><span class="cross">—</span><br><span style="font-size:12px;color:var(--ink-mute)">フリー素材使用</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>店舗写真差し替え</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+          <tr>
+            <td>SEO基礎設定</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">—</span></td>
+          </tr>
+
+          <!-- 保守・更新 -->
+          <tr class="row-group">
+            <td>保守・更新</td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td>修正回数（無料）</td>
+            <td>2回まで</td>
+            <td>3回まで</td>
+            <td>月1回まで</td>
+          </tr>
+          <tr>
+            <td>公開後サポート</td>
+            <td>14日間</td>
+            <td>公開まで含む</td>
+            <td>継続対応</td>
+          </tr>
+          <tr>
+            <td>メニュー・営業時間の更新</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>画像差し替え</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>表示崩れ・導線チェック</td>
+            <td><span class="cross">—</span></td>
+            <td><span class="cross">—</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+
+          <!-- 制作期間・条件 -->
+          <tr class="row-group">
+            <td>制作期間・条件</td><td></td><td></td><td></td>
+          </tr>
+          <tr>
+            <td>制作期間の目安</td>
+            <td>7〜10営業日</td>
+            <td>10〜14営業日</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>契約前サンプル確認</td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>制作実績への掲載</td>
+            <td>必須<br><span class="tag-limited">条件</span></td>
+            <td>任意</td>
+            <td>—</td>
+          </tr>
+
+          <!-- CTA -->
+          <tr class="compare-cta">
+            <td></td>
+            <td><a href="contact.html" class="btn btn-primary">無料相談をする</a></td>
+            <td><a href="contact.html" class="btn-outline">無料相談をする</a></td>
+            <td><a href="contact.html" class="btn-outline">無料相談をする</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 各プラン詳細 ========== -->
+<section class="sec sec--gray" id="plans">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>各プランの <em>詳細</em></h2>
+      <p>含まれるもの・含まれないものを整理しました。</p>
+    </div>
+
+    <div class="plan-cards">
+
+      <!-- プラン1：実績作りプラン -->
+      <div class="plan-detail-card featured">
+        <div class="plan-card-header featured">
+          <span class="plan-badge" style="background:#fff0f1;color:var(--coral)">初回 3店舗限定</span>
+          <h3>実績作りプラン</h3>
+          <div class="plan-card-price">¥29,800<small>（税込）</small></div>
+          <p>制作実績掲載に同意いただける方向けの特別価格。しっかりしたLPを低価格で。</p>
+        </div>
+        <div class="plan-card-body">
+          <div class="plan-includes">
+            <h4>✅ 含まれるもの</h4>
+            <ul class="plan-feature-list">
+              <li><span class="fi-check">✓</span>1枚LP制作（スマホ対応）</li>
+              <li><span class="fi-check">✓</span>店舗紹介文・コピーライティング</li>
+              <li><span class="fi-check">✓</span>メニュー・こだわり紹介セクション</li>
+              <li><span class="fi-check">✓</span>アクセス・営業時間・地図掲載</li>
+              <li><span class="fi-check">✓</span>電話・Instagram・LINE等への導線</li>
+              <li><span class="fi-check">✓</span>フリー素材を使ったビジュアル</li>
+              <li><span class="fi-check">✓</span>修正 2回まで無料</li>
+              <li><span class="fi-check">✓</span>公開後14日以内の軽微修正</li>
+            </ul>
+          </div>
+          <div class="plan-not-includes">
+            <h4>❌ 含まれないもの（別途オプション）</h4>
+            <ul class="plan-not-list">
+              <li><span class="fi-cross">✕</span>店舗実写真の差し替え</li>
+              <li><span class="fi-cross">✕</span>独自ドメイン取得・サーバー費用</li>
+              <li><span class="fi-cross">✕</span>SEO設定・アクセス解析</li>
+            </ul>
+          </div>
+          <ul class="plan-spec-list">
+            <li><span class="spec-label">制作期間</span><span class="spec-value">7〜10営業日</span></li>
+            <li><span class="spec-label">修正回数</span><span class="spec-value">2回まで無料</span></li>
+            <li><span class="spec-label">公開後サポート</span><span class="spec-value">14日間</span></li>
+            <li><span class="spec-label">残り枠</span><span class="spec-value" style="color:var(--coral)">3店舗限定</span></li>
+          </ul>
+          <p class="note">※ 制作実績としてポートフォリオへの掲載許可をいただける店舗様限定のプランです。</p>
+          <a href="contact.html" class="btn btn-primary">この料金で相談する</a>
+        </div>
+      </div>
+
+      <!-- プラン2：通常LPプラン -->
+      <div class="plan-detail-card">
+        <div class="plan-card-header">
+          <span class="plan-badge" style="background:#e6f9fa;color:#2a9d8f">スタンダード</span>
+          <h3>通常LPプラン</h3>
+          <div class="plan-card-price">¥79,800<small>〜98,000（税込）</small></div>
+          <p>お店の魅力を最大限に引き出す、写真・文章・デザインのフルセット制作。</p>
+        </div>
+        <div class="plan-card-body">
+          <div class="plan-includes">
+            <h4>✅ 含まれるもの</h4>
+            <ul class="plan-feature-list">
+              <li><span class="fi-check">✓</span>1枚LP制作（スマホ対応）</li>
+              <li><span class="fi-check">✓</span>店舗紹介文・コピーライティング</li>
+              <li><span class="fi-check">✓</span>メニュー・こだわり紹介セクション</li>
+              <li><span class="fi-check">✓</span>アクセス・営業時間・地図掲載</li>
+              <li><span class="fi-check">✓</span>画像・装飾素材のカスタム作成</li>
+              <li><span class="fi-check">✓</span>店舗実写真の差し替え対応</li>
+              <li><span class="fi-check">✓</span>SEO基礎設定（メタタグ・OGP）</li>
+              <li><span class="fi-check">✓</span>問い合わせ・予約導線設計</li>
+              <li><span class="fi-check">✓</span>修正 3回まで無料</li>
+              <li><span class="fi-check">✓</span>公開サポート込み</li>
+            </ul>
+          </div>
+          <div class="plan-not-includes">
+            <h4>❌ 含まれないもの（別途オプション）</h4>
+            <ul class="plan-not-list">
+              <li><span class="fi-cross">✕</span>独自ドメイン取得・サーバー費用</li>
+              <li><span class="fi-cross">✕</span>公開後の定期更新・保守</li>
+              <li><span class="fi-cross">✕</span>追加ページ（別途お見積もり）</li>
+            </ul>
+          </div>
+          <ul class="plan-spec-list">
+            <li><span class="spec-label">制作期間</span><span class="spec-value">10〜14営業日</span></li>
+            <li><span class="spec-label">修正回数</span><span class="spec-value">3回まで無料</span></li>
+            <li><span class="spec-label">公開後サポート</span><span class="spec-value">公開まで込み</span></li>
+            <li><span class="spec-label">価格範囲</span><span class="spec-value">¥79,800〜98,000</span></li>
+          </ul>
+          <p class="note">※ ページ量・写真点数・カスタム要素の多さによって価格が変わります。詳しくはお見積もり時にご説明します。</p>
+          <a href="contact.html" class="btn btn-ghost">詳細を相談する</a>
+        </div>
+      </div>
+
+      <!-- プラン3：月額保守プラン -->
+      <div class="plan-detail-card">
+        <div class="plan-card-header">
+          <span class="plan-badge" style="background:#fffbe6;color:#b97f10">サポート</span>
+          <h3>月額保守プラン</h3>
+          <div class="plan-card-price">¥5,500<small>/月〜（税込）</small></div>
+          <p>公開後の更新・修正をおまかせ。本業に集中したい方へ。</p>
+        </div>
+        <div class="plan-card-body">
+          <div class="plan-includes">
+            <h4>✅ 含まれるもの（月額）</h4>
+            <ul class="plan-feature-list">
+              <li><span class="fi-check">✓</span>月1回までの軽微な修正</li>
+              <li><span class="fi-check">✓</span>営業時間・定休日の変更</li>
+              <li><span class="fi-check">✓</span>メニュー文言の変更</li>
+              <li><span class="fi-check">✓</span>画像の差し替え（月1点）</li>
+              <li><span class="fi-check">✓</span>表示崩れ確認・修正</li>
+              <li><span class="fi-check">✓</span>問い合わせ導線の動作チェック</li>
+            </ul>
+          </div>
+          <div class="plan-not-includes">
+            <h4>❌ 月額対象外（別途お見積もり）</h4>
+            <ul class="plan-not-list">
+              <li><span class="fi-cross">✕</span>大幅なページ構成の変更</li>
+              <li><span class="fi-cross">✕</span>新規セクションの追加</li>
+              <li><span class="fi-cross">✕</span>デザインの大幅リニューアル</li>
+            </ul>
+          </div>
+          <ul class="plan-spec-list">
+            <li><span class="spec-label">最低契約期間</span><span class="spec-value">3ヶ月〜</span></li>
+            <li><span class="spec-label">対応修正回数</span><span class="spec-value">月1回まで</span></li>
+            <li><span class="spec-label">解約</span><span class="spec-value">翌月から停止可</span></li>
+            <li><span class="spec-label">月額費用</span><span class="spec-value">¥5,500〜/月</span></li>
+          </ul>
+          <p class="note">※ ミセミルWebで制作したLPに限らず、既存サイトの保守も要相談で対応します。</p>
+          <a href="contact.html" class="btn btn-ghost">詳細を相談する</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== オプション・追加料金 ========== -->
+<section class="sec sec--white" id="options">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>オプション・<em>追加料金</em></h2>
+      <p>基本プランに追加できるオプションです。すべて税込み表記です。</p>
+    </div>
+
+    <div class="option-table-wrap">
+      <table class="option-table">
+        <thead>
+          <tr>
+            <th style="width:240px">オプション名</th>
+            <th>内容</th>
+            <th style="width:160px">料金（税込）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>追加ページ制作</strong></td>
+            <td>
+              LP本体に加え、メニューページ・アクセスページなどを追加制作します。
+              <div class="opt-note">内容・ページ量によってお見積もり</div>
+            </td>
+            <td class="opt-price">¥15,000〜/ページ</td>
+          </tr>
+          <tr>
+            <td><strong>ドメイン取得サポート</strong></td>
+            <td>
+              お店の独自ドメイン（例：○○restaurant.com）の取得をサポートします。
+              <div class="opt-note">ドメイン年間費用（¥1,000〜/年）は別途かかります</div>
+            </td>
+            <td class="opt-price">¥3,300</td>
+          </tr>
+          <tr>
+            <td><strong>サーバー初期設定</strong></td>
+            <td>
+              レンタルサーバーの申し込み〜LP公開までの設定を代行します。
+              <div class="opt-note">サーバー月額費用（¥500〜/月）は別途かかります</div>
+            </td>
+            <td class="opt-price">¥5,500</td>
+          </tr>
+          <tr>
+            <td><strong>Googleアナリティクス設定</strong></td>
+            <td>
+              アクセス解析ツールの導入・基本設定を行います。毎月のアクセスデータを確認できるようになります。
+            </td>
+            <td class="opt-price">¥5,500</td>
+          </tr>
+          <tr>
+            <td><strong>予約システム導入サポート</strong></td>
+            <td>
+              Googleカレンダー連携・HOT PEPPER・食べログ予約など、外部予約システムとのLP連携をサポートします。
+              <div class="opt-note">システム利用料は別途かかります</div>
+            </td>
+            <td class="opt-price">¥11,000〜</td>
+          </tr>
+          <tr>
+            <td><strong>Googleマップ埋め込み</strong></td>
+            <td>
+              LPへのGoogleマップ埋め込みは標準で含まれています。
+            </td>
+            <td class="opt-price"><span class="tag-free">無料（標準含む）</span></td>
+          </tr>
+          <tr>
+            <td><strong>4回目以降の修正</strong></td>
+            <td>
+              基本プランの修正無料回数を超えた場合の追加修正費用です。
+            </td>
+            <td class="opt-price">¥3,300〜/回</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:20px;font-size:13px;color:var(--ink-mute);text-align:center">
+      ※ 記載のない内容でもご相談ください。可能な限り対応します。
+    </p>
+  </div>
+</section>
+
+<!-- ========== お支払い方法 ========== -->
+<section class="sec sec--gray" id="payment">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>お支払い<em>方法</em></h2>
+      <p>わかりやすいお支払いフローにしています。不安な点はお気軽にご相談ください。</p>
+    </div>
+
+    <div class="payment-grid">
+
+      <div class="payment-card">
+        <h3>💳 お支払い方法</h3>
+        <ul>
+          <li>銀行振込（三菱UFJ・ゆうちょ等）</li>
+          <li>PayPay・LINE Pay（要相談）</li>
+          <li>分割払い（3〜6回、要相談）</li>
+        </ul>
+      </div>
+
+      <div class="payment-card">
+        <h3>🧾 消費税・領収書</h3>
+        <ul>
+          <li>すべての料金は<strong style="color:var(--ink)">消費税10%込み</strong>の表記です</li>
+          <li>インボイス対応の領収書・請求書を発行します</li>
+          <li>法人・個人事業主の方もご安心ください</li>
+        </ul>
+      </div>
+
+      <div class="payment-card payment-timeline">
+        <h3>📅 お支払いタイミング</h3>
+        <div class="timeline-steps">
+          <div class="tl-step">
+            <div class="tl-label">STEP 1</div>
+            <div class="tl-title">ご依頼確定</div>
+            <div class="tl-amount">着手金 50%</div>
+          </div>
+          <div class="tl-arrow">▶</div>
+          <div class="tl-step">
+            <div class="tl-label">STEP 2</div>
+            <div class="tl-title">制作・修正</div>
+            <div class="tl-amount">費用なし</div>
+          </div>
+          <div class="tl-arrow">▶</div>
+          <div class="tl-step">
+            <div class="tl-label">STEP 3</div>
+            <div class="tl-title">公開・納品</div>
+            <div class="tl-amount">残金 50%</div>
+          </div>
+          <div class="tl-arrow">▶</div>
+          <div class="tl-step">
+            <div class="tl-label">公開後</div>
+            <div class="tl-title">保守プラン（任意）</div>
+            <div class="tl-amount">月額</div>
+          </div>
+        </div>
+        <p style="margin-top:16px;font-size:13px;color:var(--ink-mute)">※ サンプル確認・打ち合わせ段階での費用は一切かかりません。ご依頼が確定してから着手金をお支払いいただく形です。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== よくあるご質問（料金）========== -->
+<section class="sec sec--white" id="faq">
+  <div class="wrap" style="max-width:800px">
+    <div class="sec-head">
+      <h2>よくあるご質問<em>（料金）</em></h2>
+      <p>料金に関してよくお寄せいただく疑問をまとめました。</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>サンプルを見てから断っても、費用はかかりますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">いいえ、一切かかりません。サンプル作成・ご相談は完全無料です。費用が発生するのは「正式にご依頼します」とお伝えいただき、着手金をお支払いいただいたタイミングからです。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>ドメインやサーバーの費用は別にかかりますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">はい、独自ドメイン（年間¥1,000〜）とレンタルサーバー（月額¥500〜）は制作費とは別に実費がかかります。ご自身で用意いただくことも可能ですし、初期設定サポート（¥5,500）をご利用いただくこともできます。詳しくはご相談ください。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>修正が多くなった場合、追加費用はかかりますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">各プランに含まれる無料修正回数を超えた場合は、¥3,300〜/回の追加費用が発生します。修正の都度ご相談しながら進めますので、不安な方はお気軽にお伝えください。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>途中でプランを変更することはできますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">制作着手前であれば変更可能です。着手後は原則変更できませんが、ご事情がある場合はご相談ください。できる限り柔軟に対応します。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>実績作りプランの「3店舗限定」はいつ終わりますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">先着3店舗様に達した時点で終了します。現在の残枠はお問い合わせ時にお伝えします。ご興味がある方はお早めにご相談ください。</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="qm">Q</span>
+          <span>月額保守プランはいつでも解約できますか？</span>
+          <span class="toggle">+</span>
+        </div>
+        <div class="faq-a">最低契約期間（3ヶ月）を過ぎれば、翌月から解約できます。解約月の費用は発生しません。「しばらく試してから続けるか決めたい」という方も安心してご利用いただけます。</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA バナー ========== -->
+<section class="sec sec--gray">
+  <div class="wrap" style="max-width:760px">
+    <div class="pricing-cta-banner">
+      <h2>まずは無料でサンプルを見てみませんか？</h2>
+      <p>料金や内容でご不明な点があれば、フォームでご質問いただくことも可能です。<br>お気軽にご連絡ください。</p>
+      <a href="contact.html" class="btn-white">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="width:18px;height:18px">
+          <path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path>
+        </svg>
+        無料サンプルの相談をする　→
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Footer ========== -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <h5>ミセミルWeb</h5>
+      <p style="margin:0 0 14px;line-height:1.85">個人経営店向け、"先見せ型" LP制作サービス。<br>東京・横浜を中心に対応しています。</p>
+      <p style="margin:0;font-size:11px;color:rgba(255,255,255,0.5)">— 見せイメージ、先に見せます！ —</p>
+    </div>
+    <div>
+      <h5>サービス</h5>
+      <ul>
+        <li><a href="index.html#service">ミセミルWebとは</a></li>
+        <li><a href="index.html#strengths">4つの強み</a></li>
+        <li><a href="index.html#flow">制作の流れ</a></li>
+        <li><a href="index.html#pricing">料金プラン</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>お問い合わせ</h5>
+      <ul>
+        <li><a href="contact.html">無料サンプル相談</a></li>
+        <li><a href="index.html#faq">よくある質問</a></li>
+        <li><a href="tokushoho.html">特定商取引法に基づく表記</a></li>
+        <li><a href="privacy.html">プライバシーポリシー</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copy">© 2026 ミセミルWeb. All rights reserved.</div>
+</footer>
+
+<script src="./js/app.js"></script>
+</body>
+</html>
