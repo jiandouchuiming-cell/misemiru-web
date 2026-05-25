@@ -48,6 +48,47 @@
   });
 })();
 
+/* ===== Hamburger Menu ===== */
+(function setupHamburger() {
+  const btn = document.querySelector('.nav-hamburger');
+  const menu = document.querySelector('.mobile-menu');
+  const closeBtn = document.querySelector('.mobile-menu-close');
+  if (!btn || !menu) return;
+
+  function openMenu() {
+    btn.classList.add('open');
+    menu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    btn.classList.remove('open');
+    menu.classList.remove('open');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+  }
+
+  btn.addEventListener('click', () => {
+    btn.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  // オーバーレイ部分をタップで閉じる
+  menu.addEventListener('click', (e) => {
+    if (e.target === menu) closeMenu();
+  });
+
+  // メニュー内のリンクをタップしたら閉じる
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Escキーで閉じる
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+})();
+
 /* ===== FAQ toggles ===== */
 document.querySelectorAll('.faq-item').forEach(item => {
   const q = item.querySelector('.faq-q');

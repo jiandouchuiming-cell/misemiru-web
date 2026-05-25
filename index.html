@@ -1210,8 +1210,39 @@ root.render(/*#__PURE__*/React.createElement(App, {
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" data-om-id="3a40de11:37"><path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1" data-om-id="3a40de11:38"></path></svg>
       無料サンプルの相談をする →
     </a>
+    <button class="nav-hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- ========== Mobile Menu ========== -->
+<div class="mobile-menu" role="dialog" aria-label="ナビゲーションメニュー">
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <a href="#" class="nav-logo">
+        <img src="./images/logos/misemiru_logo_illustrated.png" alt="ミセミルWeb">
+        <img src="./images/logos/misemiru_logo_wordmark.png" alt="ミセミルWeb" style="height:22px">
+      </a>
+      <button class="mobile-menu-close" aria-label="メニューを閉じる">✕</button>
+    </div>
+    <nav class="mobile-menu-nav">
+      <a href="#service">サービスとは</a>
+      <a href="#samples">サンプル</a>
+      <a href="#flow">制作の流れ</a>
+      <a href="#pricing">料金プラン</a>
+      <a href="#strengths">私たちの強み</a>
+      <a href="#voice">お店の声</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="contact.html" class="btn btn-primary">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path></svg>
+        無料サンプルの相談をする
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ========== Hero ========== -->
 <header class="hero" data-om-id="3a40de11:39">
@@ -2032,9 +2063,6 @@ root.render(/*#__PURE__*/React.createElement(App, {
     </div>
     </div>
 
-    <div class="voice-dots" data-om-id="3a40de11:582">
-      <span class="active" data-om-id="3a40de11:583"></span><span data-om-id="3a40de11:584"></span><span data-om-id="3a40de11:585"></span>
-    </div>
   </div>
 </section>
 <!-- ========== Pricing ========== -->

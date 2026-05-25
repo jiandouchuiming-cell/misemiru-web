@@ -81,7 +81,7 @@
     }
 
     /* ---- 共通セクション ---- */
-    .sec { padding: 80px 0; }
+    .sec { padding: 80px 0; position: relative; overflow: hidden; }
     .sec--gray { background: var(--cream); }
     .sec--white { background: #fff; }
     .sec-head {
@@ -623,8 +623,39 @@
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path></svg>
       無料サンプルの相談をする →
     </a>
+    <button class="nav-hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- ========== Mobile Menu ========== -->
+<div class="mobile-menu" role="dialog" aria-label="ナビゲーションメニュー">
+  <div class="mobile-menu-panel">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="nav-logo">
+        <img src="./images/logos/misemiru_logo_illustrated.png" alt="ミセミルWeb">
+        <img src="./images/logos/misemiru_logo_wordmark.png" alt="ミセミルWeb" style="height:22px">
+      </a>
+      <button class="mobile-menu-close" aria-label="メニューを閉じる">✕</button>
+    </div>
+    <nav class="mobile-menu-nav">
+      <a href="index.html#service">サービスとは</a>
+      <a href="index.html#samples">サンプル</a>
+      <a href="index.html#flow">制作の流れ</a>
+      <a href="index.html#pricing">料金プラン</a>
+      <a href="index.html#strengths">私たちの強み</a>
+      <a href="index.html#voice">お店の声</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="mobile-menu-footer">
+      <a href="contact.html" class="btn btn-primary">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6.5l9 6 9-6M3 6.5v11a1 1 0 001 1h16a1 1 0 001-1v-11M3 6.5a1 1 0 011-1h16a1 1 0 011 1"></path></svg>
+        無料サンプルの相談をする
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- ========== Page Hero ========== -->
 <section class="pricing-hero">
@@ -634,6 +665,14 @@
   <div class="deco drift" style="right:3%;top:30px;width:80px;height:60px;opacity:.4">
     <img src="./images/decorations/yellow_dotted_diagonal.png" alt="">
   </div>
+  <div class="deco float" style="right:5%;bottom:20px;width:64px;height:64px;opacity:.55">
+    <img src="./images/decorations/coral_sparkle_set.png" alt="">
+  </div>
+  <div class="deco drift" style="left:4%;bottom:28px;width:56px;height:44px;opacity:.45">
+    <img src="./images/decorations/teal_wavy_line.png" alt="">
+  </div>
+  <img class="pcircle" src="./images/swatches/lavender.png" alt="" style="width:260px;top:-80px;right:-80px;opacity:.35;mix-blend-mode:multiply;">
+  <img class="pcircle" src="./images/swatches/peach.png" alt="" style="width:120px;bottom:-40px;left:30%;opacity:.3;mix-blend-mode:multiply;">
 
   <div class="wrap">
     <a href="index.html#pricing" class="back-link">← 料金プラン一覧へ戻る</a>
@@ -654,6 +693,16 @@
 
 <!-- ========== プラン比較表 ========== -->
 <section class="sec sec--white" id="compare">
+  <div class="deco float" style="right:2%;top:40px;width:80px;height:80px;opacity:.45">
+    <img src="./images/decorations/yellow_dotted_ring.png" alt="">
+  </div>
+  <div class="deco drift" style="left:1%;top:60px;width:70px;height:56px;opacity:.4">
+    <img src="./images/decorations/colorful_confetti.png" alt="">
+  </div>
+  <div class="deco float" style="left:2%;bottom:40px;width:60px;height:60px;opacity:.5">
+    <img src="./images/decorations/teal_sparkle_cluster.png" alt="">
+  </div>
+  <img class="pcircle" src="./images/swatches/sky.png" alt="" style="width:200px;top:-60px;right:-60px;opacity:.3;mix-blend-mode:multiply;">
   <div class="wrap">
     <div class="sec-head">
       <h2>プラン <em>比較表</em></h2>
@@ -815,6 +864,20 @@
 
 <!-- ========== 各プラン詳細 ========== -->
 <section class="sec sec--gray" id="plans">
+  <div class="deco float" style="right:2%;top:50px;width:90px;height:72px;opacity:.5">
+    <img src="./images/decorations/yellow_sunburst_rays.png" alt="">
+  </div>
+  <div class="deco drift" style="left:1%;top:120px;width:72px;height:60px;opacity:.4">
+    <img src="./images/decorations/navy_loop_scribble.png" alt="">
+  </div>
+  <div class="deco float" style="right:3%;bottom:60px;width:64px;height:64px;opacity:.5">
+    <img src="./images/decorations/coral_sparkle_set.png" alt="">
+  </div>
+  <div class="deco drift" style="left:3%;bottom:40px;width:80px;height:60px;opacity:.4">
+    <img src="./images/decorations/yellow_dotted_diamond.png" alt="">
+  </div>
+  <img class="pcircle" src="./images/swatches/peach.png" alt="" style="width:220px;top:-60px;left:-70px;opacity:.35;mix-blend-mode:multiply;">
+  <img class="pcircle" src="./images/swatches/mint.png" alt="" style="width:100px;bottom:-30px;right:10%;opacity:.4;mix-blend-mode:multiply;">
   <div class="wrap">
     <div class="sec-head">
       <h2>各プランの <em>詳細</em></h2>
@@ -952,6 +1015,16 @@
 
 <!-- ========== オプション・追加料金 ========== -->
 <section class="sec sec--white" id="options">
+  <div class="deco float" style="right:2%;top:48px;width:72px;height:60px;opacity:.45">
+    <img src="./images/decorations/yellow_dotted_diagonal.png" alt="">
+  </div>
+  <div class="deco drift" style="left:1%;bottom:48px;width:68px;height:68px;opacity:.45">
+    <img src="./images/decorations/teal_sparkle_trio.png" alt="">
+  </div>
+  <div class="deco float" style="right:4%;bottom:60px;width:60px;height:48px;opacity:.4">
+    <img src="./images/decorations/coral_curly_arrow.png" alt="">
+  </div>
+  <img class="pcircle" src="./images/swatches/aqua.png" alt="" style="width:180px;bottom:-50px;right:-50px;opacity:.3;mix-blend-mode:multiply;">
   <div class="wrap">
     <div class="sec-head">
       <h2>オプション・<em>追加料金</em></h2>
@@ -1033,6 +1106,17 @@
 
 <!-- ========== お支払い方法 ========== -->
 <section class="sec sec--gray" id="payment">
+  <div class="deco float" style="left:2%;top:48px;width:80px;height:64px;opacity:.5">
+    <img src="./images/decorations/yellow_accent_rays.png" alt="">
+  </div>
+  <div class="deco drift" style="right:2%;top:60px;width:68px;height:56px;opacity:.4">
+    <img src="./images/decorations/navy_emphasis_lines.png" alt="">
+  </div>
+  <div class="deco float" style="right:3%;bottom:48px;width:64px;height:52px;opacity:.45">
+    <img src="./images/decorations/teal_dashed_arrow.png" alt="">
+  </div>
+  <img class="pcircle" src="./images/swatches/yellow.png" alt="" style="width:160px;top:-40px;right:15%;opacity:.35;mix-blend-mode:multiply;">
+  <img class="pcircle" src="./images/swatches/pink.png" alt="" style="width:130px;bottom:-40px;left:-40px;opacity:.35;mix-blend-mode:multiply;">
   <div class="wrap">
     <div class="sec-head">
       <h2>お支払い<em>方法</em></h2>
@@ -1095,6 +1179,13 @@
 
 <!-- ========== よくあるご質問（料金）========== -->
 <section class="sec sec--white" id="faq">
+  <div class="deco float" style="left:2%;top:52px;width:72px;height:60px;opacity:.4">
+    <img src="./images/decorations/pink_blob_shape.png" alt="">
+  </div>
+  <div class="deco drift" style="right:2%;bottom:52px;width:64px;height:52px;opacity:.4">
+    <img src="./images/decorations/yellow_organic_circle.png" alt="">
+  </div>
+  <img class="pcircle" src="./images/swatches/rose.png" alt="" style="width:150px;top:-40px;left:-40px;opacity:.25;mix-blend-mode:multiply;">
   <div class="wrap" style="max-width:800px">
     <div class="sec-head">
       <h2>よくあるご質問<em>（料金）</em></h2>
@@ -1163,6 +1254,12 @@
 
 <!-- ========== CTA バナー ========== -->
 <section class="sec sec--gray">
+  <div class="deco float" style="left:2%;top:40px;width:70px;height:56px;opacity:.45">
+    <img src="./images/decorations/yellow_dotted_circle.png" alt="">
+  </div>
+  <div class="deco drift" style="right:2%;bottom:40px;width:64px;height:52px;opacity:.4">
+    <img src="./images/decorations/teal_sparkle_trio.png" alt="">
+  </div>
   <div class="wrap" style="max-width:760px">
     <div class="pricing-cta-banner">
       <h2>まずは無料でサンプルを見てみませんか？</h2>
