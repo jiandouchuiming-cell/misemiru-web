@@ -41,7 +41,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; position: relative; }
 
-.script { font-family: 'Caveat', cursive; font-weight: 600; }
+.script { font-family: 'Dancing Script', cursive; font-weight: 700; }
 
 /* ========== Nav ========== */
 .nav {
@@ -316,7 +316,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   bottom: -30px;
   left: 62%;
   transform: translateX(-50%);
-  font-family: 'Caveat', cursive;
+  font-family: 'Dancing Script', cursive;
   color: var(--teal);
   font-size: 22px;
   white-space: nowrap;
@@ -416,7 +416,7 @@ section:hover .pcircle { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
 
 .smartphone-note {
   position: absolute; right: 0; bottom: -10px;
-  font-family: 'Caveat', cursive; color: var(--teal);
+  font-family: 'Dancing Script', cursive; color: var(--teal);
   font-size: 22px; font-weight: 600;
 }
 
@@ -441,7 +441,7 @@ section { position: relative; }
 .section-pad { padding: 110px 0; }
 .section-tight { padding: 80px 0; }
 .section-en {
-  font-family: 'Caveat', cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: 56px; font-weight: 700;
   color: var(--coral); text-align: center;
   margin: 0 0 2px; line-height: 1.1; display: block;
@@ -601,7 +601,7 @@ footer::before {
   width: 56px; height: 56px; margin: 0 auto 14px;
   border-radius: 50%;
   display: grid; place-items: center;
-  font-family: 'Caveat', cursive; font-weight: 700;
+  font-family: 'Dancing Script', cursive; font-weight: 700;
   font-size: 28px; color: #fff;
   background: var(--navy);
   position: relative; z-index: 2;
@@ -639,7 +639,7 @@ footer::before {
 }
 .voice-head__title { line-height: 1; }
 .voice-head__big {
-  font-family: 'Caveat', cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: 84px;
   font-weight: 700;
   color: var(--teal);
@@ -717,7 +717,7 @@ footer::before {
   text-shadow: 0 1px 0 rgba(0,0,0,0.04);
 }
 .voice-card__tag {
-  font-family: 'Caveat', cursive;
+  font-family: 'Dancing Script', cursive;
   font-size: 17px;
   font-weight: 700;
   padding: 2px 12px;
@@ -853,7 +853,7 @@ footer::before {
 }
 .profile-card .hello {
   position: absolute; top: 18px; right: 22px;
-  font-family: 'Caveat', cursive; font-size: 22px;
+  font-family: 'Dancing Script', cursive; font-size: 22px;
   color: var(--yellow); line-height: 1.2; text-align: right;
 }
 .profile-photo {
@@ -1199,7 +1199,7 @@ footer::before {
   border: 2px dashed var(--yellow);
 }
 .about-vis .core .big {
-  font-family: 'Caveat', cursive; font-size: 25px;
+  font-family: 'Dancing Script', cursive; font-size: 25px;
   color: var(--coral); line-height: 1.2; margin-top:60px; margin-bottom: 0px;
 }
 .about-vis .core .small { font-size: 10px; font-weight: 700; line-height: 1.7; margin-bottom: 40px; }
@@ -1211,7 +1211,7 @@ footer::before {
   position: relative; overflow: hidden;
 }
 .loader-eyebrow {
-  text-align: center; font-family: 'Caveat', cursive;
+  text-align: center; font-family: 'Dancing Script', cursive;
   color: var(--teal); font-size: 26px; margin-bottom: 4px;
 }
 .loader-grid {
@@ -1387,7 +1387,7 @@ footer::before {
 .perk span { font-size: 12px; font-weight: 700; line-height: 1.55; display: block; }
 
 .from-here {
-  font-family: 'Caveat', cursive; font-size: 22px; color: var(--navy);
+  font-family: 'Dancing Script', cursive; font-size: 22px; color: var(--navy);
   text-align: center; margin: 0 0 14px;
   display: inline-flex; align-items: center; gap: 16px;
 }
