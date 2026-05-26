@@ -1361,16 +1361,92 @@ root.render(/*#__PURE__*/React.createElement(App, {
   </div>
 
   <div class="wrap" data-om-id="3a40de11:134">
-    <div class="empathy-card" data-om-id="3a40de11:135">
-      <h2 data-om-id="3a40de11:136">いいお店なのに、<br data-om-id="3a40de11:137">Web上で<span class="underline" data-om-id="3a40de11:138">魅力が伝わりきっていない</span>かもしれません。</h2>
-      <p data-om-id="3a40de11:139">お店の料理がおいしい。店内の雰囲気もいい。常連さんにも愛されている。</p>
-      <p data-om-id="3a40de11:140">それなのに、初めて来るお客様からは——</p>
-      <div class="tags" data-om-id="3a40de11:141">
-        <span class="tag" data-om-id="3a40de11:142">「どんなお店か分からない」</span>
-        <span class="tag" data-om-id="3a40de11:143">「メニューや雰囲気がつかみにくい」</span>
-        <span class="tag" data-om-id="3a40de11:144">「予約や問い合わせをしていいのか迷う」</span>
+    <div class="empathy-card">
+      <!-- タイトル -->
+      <div class="worry-head">
+        <span class="worry-slash" aria-hidden="true">\ </span>
+        <h2>こんなお悩み、ありませんか？</h2>
+        <span class="worry-slash" aria-hidden="true"> /</span>
       </div>
-      <p style="margin-top:28px" data-om-id="3a40de11:145">特に今は、多くのお客様が来店前にスマホでお店を調べます。<br data-om-id="3a40de11:146">GoogleマップやInstagramだけでなく、お店の魅力が整理されたWebページがあるだけで、来店前の安心感は大きく変わります。</p>
+
+      <!-- 5つのお悩み -->
+      <div class="worry-grid">
+
+        <div class="worry-item">
+          <div class="worry-icon">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="16" y="4" width="24" height="48" rx="5" stroke="#0b2c4d" stroke-width="2.5"/>
+              <line x1="22" y1="48" x2="34" y2="48" stroke="#0b2c4d" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M28 13 a9 9 0 0 1 9 9 c0 7-9 17-9 17 s-9-10-9-17 a9 9 0 0 1 9-9z" fill="#ffe2e7" stroke="#ff5a6e" stroke-width="2"/>
+              <circle cx="28" cy="22" r="3.5" fill="#ff5a6e"/>
+            </svg>
+          </div>
+          <p>Googleマップだけでは<br>お店の魅力が伝わらない</p>
+        </div>
+
+        <div class="worry-item">
+          <div class="worry-icon">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="9" y="9" width="36" height="36" rx="9" stroke="#c13584" stroke-width="2.5"/>
+              <circle cx="27" cy="27" r="9" stroke="#c13584" stroke-width="2.2"/>
+              <circle cx="38.5" cy="17.5" r="2.8" fill="#c13584"/>
+              <path d="M47 22 l5 5 -5 5" stroke="#e1306c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="48" y1="27" x2="54" y2="27" stroke="#e1306c" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p>SNSでは情報が<br>流れてしまう</p>
+        </div>
+
+        <div class="worry-item">
+          <div class="worry-icon">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="17" r="9" stroke="#0b2c4d" stroke-width="2.5"/>
+              <path d="M12 50 C12 38 40 38 40 50" stroke="#0b2c4d" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M39 10 q4 0 4 4 q0 3-4 4 l0 2" stroke="#ff5a6e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="39" cy="22" r="1.8" fill="#ff5a6e"/>
+            </svg>
+          </div>
+          <p>ホームページは<br>難しそうで不安…</p>
+        </div>
+
+        <div class="worry-item">
+          <div class="worry-icon">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="28" cy="28" r="22" stroke="#0b2c4d" stroke-width="2.5"/>
+              <line x1="28" y1="28" x2="28" y2="12" stroke="#0b2c4d" stroke-width="2.8" stroke-linecap="round"/>
+              <line x1="28" y1="28" x2="40" y2="35" stroke="#ff5a6e" stroke-width="2.8" stroke-linecap="round"/>
+              <circle cx="28" cy="28" r="3" fill="#0b2c4d"/>
+              <line x1="28" y1="7" x2="28" y2="11" stroke="#0b2c4d" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="28" y1="45" x2="28" y2="49" stroke="#0b2c4d" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="7" y1="28" x2="11" y2="28" stroke="#0b2c4d" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="45" y1="28" x2="49" y2="28" stroke="#0b2c4d" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p>忙しくて制作に<br>時間をかけられない</p>
+        </div>
+
+        <div class="worry-item">
+          <div class="worry-icon">
+            <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="4" width="32" height="48" rx="5" stroke="#0b2c4d" stroke-width="2.5"/>
+              <rect x="17" y="10" width="22" height="12" rx="2" stroke="#0b2c4d" stroke-width="2"/>
+              <path d="M25 13 q0-2 3-2 t3 2 q0 2-3 3 v1.5" stroke="#ff5a6e" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="28" cy="21" r="1.4" fill="#ff5a6e"/>
+              <rect x="17" y="28" width="6" height="5" rx="1.5" fill="#5bc9ce"/>
+              <rect x="25" y="28" width="6" height="5" rx="1.5" fill="#5bc9ce"/>
+              <rect x="33" y="28" width="6" height="5" rx="1.5" fill="#5bc9ce"/>
+              <rect x="17" y="36" width="6" height="5" rx="1.5" fill="#5bc9ce"/>
+              <rect x="25" y="36" width="6" height="5" rx="1.5" fill="#5bc9ce"/>
+              <rect x="33" y="36" width="6" height="5" rx="1.5" fill="#ff5a6e"/>
+            </svg>
+          </div>
+          <p>費用や効果が<br>イメージできない</p>
+        </div>
+
+      </div>
+
+      <!-- 解決メッセージ -->
+      <p class="worry-solve">✦ そのお悩み、<span>サンプルを見てから相談できるLP制作</span>で解決します！</p>
     </div>
   </div>
 </section>
