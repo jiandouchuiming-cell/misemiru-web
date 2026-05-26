@@ -1555,3 +1555,24 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   .final-perks { grid-template-columns: repeat(2, 1fr); }
   .foot-inner { grid-template-columns: 1fr; }
 }
+/*pcのみ改行*/
+/*pcの時だけ改行したいところに"<br class="pc-only">を入れる"*/
+.pc-only {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .pc-only {
+    display: inline; 
+  }
+}
+
+/*スマホのみ改行*/
+/*スマホの時だけ改行したいところに"<br class="phone-only">を入れる"*/
+.phone-only {
+  display: inline;
+}
+@media screen and (min-width: 768px) {
+  .sp-only {
+    display: none;
+  }
+}
