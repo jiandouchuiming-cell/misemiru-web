@@ -1734,6 +1734,11 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   transform: none;
   max-width: 500px;
 }
+/* 内部余白を詰める */
+.hero .hero-eyebrow   { margin-bottom: 12px; }
+.hero h1              { margin-bottom: 12px; }
+.hero p.lead          { margin-bottom: 10px; line-height: 1.75; }
+.hero-icons           { margin-bottom: 18px; }
 /* テキスト白化 */
 .hero h1              { color: #fff; }
 .hero p.lead          { color: rgba(255, 255, 255, 0.90); }
