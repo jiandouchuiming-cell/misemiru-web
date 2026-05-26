@@ -1708,7 +1708,7 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
 /* ========== Hero: フル背景写真デザイン ========== */
 .hero {
   background: url('../images/hero/restaurant_hero_photo2.png') center / cover no-repeat;
-  padding: 80px 0 120px;
+  padding: 48px 0 60px;
 }
 .hero::before {
   content: '';
@@ -1776,7 +1776,7 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   .hero .mockup-wrapper { max-width: 360px; }
 }
 @media (max-width: 600px) {
-  .hero { padding: 60px 0 80px; }
+  .hero { padding: 36px 0 48px; }
   .hero .mockup-wrapper { max-width: 300px; }
   .hero h1 .quote-emph::before { bottom: -4px; height: 6px; }
 }
