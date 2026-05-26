@@ -1555,24 +1555,93 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   .final-perks { grid-template-columns: repeat(2, 1fr); }
   .foot-inner { grid-template-columns: 1fr; }
 }
-/*pcのみ改行*/
-/*pcの時だけ改行したいところに"<br class="pc-only">を入れる"*/
-.pc-only {
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .pc-only {
-    display: inline; 
+/* PC/スマホ改行ヘルパー */
+.pc-only { display: none; }
+@media screen and (min-width: 768px) { .pc-only { display: inline; } }
+.phone-only { display: inline; }
+@media screen and (min-width: 768px) { .sp-only { display: none; } }
+
+/* ========== スマホ最適化 (≤ 600px) ========== */
+@media (max-width: 600px) {
+  /* 縦余白を圧縮 */
+  .section-pad   { padding: 64px 0; }
+  .section-tight { padding: 48px 0; }
+  .empathy  { padding-top: 80px;  padding-bottom: 80px; }
+  .about    { padding-top: 90px;  padding-bottom: 90px; }
+  .final    { padding-top: 80px;  padding-bottom: 64px; }
+  .flow, .voice, .pricing, .faq,
+  .strengths, .samples, .fit, .loader-section { padding: 64px 0; }
+
+  /* タイポグラフィ縮小 */
+  .hero h1       { font-size: 28px; }
+  .hero p.lead   { font-size: 14px; line-height: 1.9; }
+  .hero-eyebrow  { font-size: 12px; padding: 5px 12px; }
+  .section-en    { font-size: 40px; }
+  .section-title { font-size: 22px; }
+  .section-sub   { font-size: 13px; margin: 0 0 36px; }
+  .empathy h2    { font-size: 19px; }
+  .final-card h2 { font-size: 20px; }
+  .voice-head__big { font-size: 50px; }
+
+  /* ヒーローアイコン */
+  .hero-icons      { gap: 10px; }
+  .hero-icon .ring { width: 52px; height: 52px; }
+  .hero-icon span  { font-size: 10px; }
+
+  /* ヒーローバッジ — 小さめに収める */
+  .hero-badge-img { width: 100px; top: -10px; right: -8px; }
+
+  /* CTAボタンを縦並びで全幅 */
+  .hero-cta-row, .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
   }
+  .hero-cta-row .btn, .hero-cta .btn {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* カード内余白 */
+  .empathy-card { padding: 24px 18px; }
+  .final-card   { padding: 28px 18px; }
+
+  /* FAQの回答インデントを狭める */
+  .faq-a                { padding: 0 14px 0 50px; }
+  .faq-item.open .faq-a { padding: 0 14px 18px 50px; }
+  .faq-q                { padding: 16px 18px; font-size: 14px; }
+
+  /* フロー: 小画面では1列 */
+  .flow-steps        { grid-template-columns: 1fr; gap: 20px; }
+  .flow-step .stp-icon { width: 60px; height: 60px; }
+  .flow-step .num      { width: 44px; height: 44px; font-size: 22px; }
+
+  /* Voice ヘッダー */
+  .voice-head { gap: 10px; }
+  .voice-head__sub { font-size: 13px; }
+
+  /* アバウト円形ビジュアルを縮小 */
+  .about-vis { max-width: 260px; margin: 0 auto; }
+
+  /* ペルク(特典)円 */
+  .perk .circle { width: 72px; height: 72px; }
+  .perk span    { font-size: 11px; }
+
+  /* フッター余白 */
+  footer { padding: 48px 16px 24px; }
+
+  /* ラッパー横余白をやや狭める */
+  .wrap { padding: 0 16px; }
 }
 
-/*スマホのみ改行*/
-/*スマホの時だけ改行したいところに"<br class="phone-only">を入れる"*/
-.phone-only {
-  display: inline;
-}
-@media screen and (min-width: 768px) {
-  .sp-only {
-    display: none;
-  }
+/* ========== 極小スマホ (≤ 400px) ========== */
+@media (max-width: 400px) {
+  .hero h1        { font-size: 24px; }
+  .section-title  { font-size: 19px; }
+  .section-en     { font-size: 34px; }
+  .hero-icon .ring { width: 44px; height: 44px; }
+  .hero-icon span  { font-size: 9px; }
+  .empathy h2      { font-size: 17px; }
+  .voice-head__big { font-size: 42px; }
 }
