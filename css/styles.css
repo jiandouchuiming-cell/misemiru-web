@@ -1030,8 +1030,8 @@ footer::before {
   margin-bottom: 32px;
 }
 .worry-item { text-align: center; padding: 8px 4px; }
-.worry-icon { width: 72px; height: 72px; margin: 0 auto 12px; }
-.worry-icon svg { width: 100%; height: 100%; overflow: visible; }
+.worry-icon { width: 80px; height: 80px; margin: 0 auto 12px; }
+.worry-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .worry-item p {
   font-size: 13px; font-weight: 600;
   color: var(--ink); margin: 0; line-height: 1.7;
