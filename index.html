@@ -1910,10 +1910,123 @@ root.render(/*#__PURE__*/React.createElement(App, {
       ご利用いただいたオーナー様のお言葉が届き次第、掲載していきます。
     </p>
 
-    <div style="text-align:center;padding:48px 24px;background:#fff;border-radius:16px;border:1.5px dashed rgba(11,44,77,0.12);max-width:560px;margin:0 auto;">
-      <p style="font-size:32px;margin:0 0 12px;">💬</p>
-      <p style="font-size:16px;font-weight:800;color:var(--ink);margin:0 0 8px;">お客様の声を準備中です</p>
-      <p style="font-size:14px;color:var(--ink-mute);line-height:1.8;margin:0;">実際にご利用いただいたお店のオーナー様から<br>お声をいただき次第、順次掲載してまいります。</p>
+    <div class="voice-rows">
+      <!-- 上段：右から左へ流れる -->
+      <div class="voice-row">
+        <div class="voice-card" style="--accent:#5bc9ce">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--teal">準備中</span>
+          </div>
+          <p class="voice-card__text">現在お声を集めています。<br>公開まで今しばらくお待ちください。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#5bc9ce">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#e97ca4">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--coral">準備中</span>
+          </div>
+          <p class="voice-card__text">お客様のお声を順次掲載予定です。<br>しばらくお待ちください。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#e97ca4">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#7c5ae8">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--purple">準備中</span>
+          </div>
+          <p class="voice-card__text">ご利用いただいたオーナー様の<br>お声を集めています。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#7c5ae8">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#f0b429">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--yellow">準備中</span>
+          </div>
+          <p class="voice-card__text">実際にご利用いただいた店舗様の<br>お声を準備しています。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#f0b429">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#5bc9ce">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--teal">準備中</span>
+          </div>
+          <p class="voice-card__text">現在お声を集めています。<br>公開まで今しばらくお待ちください。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#5bc9ce">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+      </div>
+      <!-- 下段：左から右へ流れる -->
+      <div class="voice-row voice-row--reverse">
+        <div class="voice-card" style="--accent:#e97ca4">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--coral">準備中</span>
+          </div>
+          <p class="voice-card__text">お客様のお声を順次掲載予定です。<br>しばらくお待ちください。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#e97ca4">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#7c5ae8">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--purple">準備中</span>
+          </div>
+          <p class="voice-card__text">ご利用いただいたオーナー様の<br>お声を集めています。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#7c5ae8">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#f0b429">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--yellow">準備中</span>
+          </div>
+          <p class="voice-card__text">実際にご利用いただいた店舗様の<br>お声を準備しています。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#f0b429">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#5bc9ce">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--teal">準備中</span>
+          </div>
+          <p class="voice-card__text">現在お声を集めています。<br>公開まで今しばらくお待ちください。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#5bc9ce">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+        <div class="voice-card" style="--accent:#e97ca4">
+          <div class="voice-card__top">
+            <span class="voice-card__stars">★★★★★</span>
+            <span class="voice-card__tag voice-card__tag--coral">準備中</span>
+          </div>
+          <p class="voice-card__text">お客様のお声を順次掲載予定です。<br>しばらくお待ちください。</p>
+          <div class="voice-card__person">
+            <div class="voice-card__avatar" style="background:#e97ca4">？</div>
+            <div><strong>準備中</strong><em>近日公開予定</em></div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
