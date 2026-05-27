@@ -1756,7 +1756,7 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
 /* ========== Hero: フル背景写真デザイン ========== */
 .hero {
   background: url('../images/hero/restaurant_hero_photo2.png') center 30% / cover no-repeat;
-  padding: 56px 0 0;
+  padding: 50px 0 25px;
 }
 .hero::before {
   content: '';
