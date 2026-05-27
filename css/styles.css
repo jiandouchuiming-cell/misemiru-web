@@ -928,7 +928,8 @@ footer::before {
   background: var(--cream);
   border-radius: var(--rad-lg);
   padding: 50px 44px;
-  display: grid; grid-template-columns: 2.2fr 1fr; gap: 32px;
+	display: grid; grid-template-columns: 2.75
+		fr 1fr; gap: 32px;
   position: relative;
 }
 .pricing-tape {
@@ -1080,7 +1081,7 @@ footer::before {
 .worry-icon { width: 80px; height: 80px; margin: 0 auto 12px; }
 .worry-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .worry-item p {
-  font-size: 13px; font-weight: 600;
+  font-size: 11px; font-weight: 600;
   color: var(--ink); margin: 0; line-height: 1.7;
 }
 .worry-solve {
