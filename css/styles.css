@@ -928,7 +928,6 @@ footer::before {
   background: var(--cream);
   border-radius: var(--rad-lg);
   padding: 50px 44px;
-	display: grid; grid-template-columns: 2.75fr 1fr; gap: 32px;
   position: relative;
 }
 .pricing-tape {
