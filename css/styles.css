@@ -1017,8 +1017,15 @@ footer::before {
 .profile-card {
   background: var(--navy); color: #fff;
   border-radius: var(--rad-md);
-  padding: 28px 24px;
+  padding: 32px 36px;
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.profile-card__text {
+  flex: 1;
+  min-width: 0;
 }
 .profile-card .hello {
   position: absolute; top: 18px; right: 22px;
@@ -1026,12 +1033,13 @@ footer::before {
   color: var(--yellow); line-height: 1.2; text-align: right;
 }
 .profile-photo {
-  width: 96px; height: 96px; border-radius: 50%;
+  width: 110px; height: 110px; border-radius: 50%;
   background: linear-gradient(135deg, #ffe0c2 0%, #ffc196 100%);
   display: grid; place-items: center;
   font-size: 11px; color: #6b4423;
   font-family: 'JetBrains Mono', monospace;
-  margin: 0 0 20px;
+  margin: 0;
+  flex-shrink: 0;
   border: 3px solid rgba(255,255,255,0.15);
   overflow: hidden;
 }
@@ -1653,6 +1661,8 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   .flow-line { display: none; }
   .plans { grid-template-columns: 1fr; }
   .pricing-wrap { padding: 28px 20px; }
+  .profile-card { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+  .profile-photo { margin: 0 0 16px; }
   .pricing-perks { grid-template-columns: 1fr; gap: 16px; }
   .empathy-card, .final-card { padding: 32px 24px; }
   .empathy h2, .final-card h2 { font-size: 22px; }
