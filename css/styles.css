@@ -1017,15 +1017,25 @@ footer::before {
 .profile-card {
   background: var(--navy); color: #fff;
   border-radius: var(--rad-md);
-  padding: 32px 36px;
+  padding: 36px 44px;
   position: relative;
+}
+.profile-card-members {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.profile-card-member {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
 }
-.profile-card__text {
-  flex: 1;
-  min-width: 0;
+.profile-card-role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 4px;
 }
 .profile-card .hello {
   position: absolute; top: 18px; right: 22px;
@@ -1661,8 +1671,9 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   .flow-line { display: none; }
   .plans { grid-template-columns: 1fr; }
   .pricing-wrap { padding: 28px 20px; }
-  .profile-card { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
-  .profile-photo { margin: 0 0 16px; }
+  .profile-card { padding: 28px 24px; }
+  .profile-card-members { grid-template-columns: 1fr; }
+  .profile-photo { margin: 0; }
   .pricing-perks { grid-template-columns: 1fr; gap: 16px; }
   .empathy-card, .final-card { padding: 32px 24px; }
   .empathy h2, .final-card h2 { font-size: 22px; }
