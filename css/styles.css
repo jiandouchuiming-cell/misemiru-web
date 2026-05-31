@@ -1872,9 +1872,9 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   
   .mobile-badge-img {
     position: absolute;
-    right: 10px;        /* 画面右側に配置 */
-    bottom: -20px;      /* 見出し「に。」の右下あたりに配置 */
-    width: 80px;        /* スマホで見出しの横に置くのにちょうど良いサイズ */
+    right: 5px;         /* 画面右側に配置 */
+    bottom: -25px;      /* 見出し「に。」の右下あたりに配置 */
+    width: 105px;       /* スマホ用に見やすく少し大きめに調整 */
     height: auto;
     transform: rotate(8deg);
     z-index: 10;
