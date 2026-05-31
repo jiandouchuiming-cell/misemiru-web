@@ -1849,3 +1849,35 @@ footer .copy { text-align: center; padding-top: 30px; margin-top: 40px; border-t
   }
   .hero .mockup-wrapper { max-width: 300px; }
 }
+
+/* ========== スマホ表示でのバッジ画像の位置調整（見出しの右側） ========== */
+.sp-only {
+  display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .sp-only {
+    display: inline-block !important;
+  }
+  .pc-only {
+    display: none !important;
+  }
+  
+  /* スマホで見出しの右側に浮かせる設定 */
+  .hero-title-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .mobile-badge-img {
+    position: absolute;
+    right: 10px;        /* 画面右側に配置 */
+    bottom: -20px;      /* 見出し「に。」の右下あたりに配置 */
+    width: 80px;        /* スマホで見出しの横に置くのにちょうど良いサイズ */
+    height: auto;
+    transform: rotate(8deg);
+    z-index: 10;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+  }
+}
